@@ -5,7 +5,8 @@
   "main": "index.js",
     "scripts": {
     "Hello": "echo Hello World",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "Runtest": "npx cypress run --record --key a0c09ff5-ca84-4bec-b555-8e9bb48ca0ea -b \"chrome\" --spec \"./cypress/e2e/11. P18_POMdemo.cy.js\""
   },
   "keywords": [],
   "author": "",

@@ -11,7 +11,7 @@ var orangehrmhp = new OrangeHRMHP()
 
 it('POM Demo', () => {
     
-  cy.log(Cypress.env('ORANGEHRM_URL'))
+    cy.log(Cypress.env('ORANGEHRM_URL'))
     cy.visit(Cypress.env('ORANGEHRM_URL'))
        
     orangehrmlp.enterUsername("Admin")
