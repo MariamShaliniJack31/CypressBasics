@@ -1,0 +1,19 @@
+{
+  "name": "cypressbasics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "scripts": {
+    "Hello": "echo Hello World",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "Dependencies": {
+    "cypress-file-upload": "^5.0.8"
+  },
+  "dependencies": {
+    "cypress-downloadfile": "^1.2.3"
+  }
+}
