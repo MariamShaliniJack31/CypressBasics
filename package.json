@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "Hello": "echo Hello World",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "Runtest": "npx cypress run --record --key a0c09ff5-ca84-4bec-b555-8e9bb48ca0ea -b \"chrome\" --spec \"./cypress/e2e/11. P18_POMdemo.cy.js\""
+    "Runtest": "npx cypress run --record --key a0c09ff5-ca84-4bec-b555-8e9bb48ca0ea -b \"chrome\" --spec \"./cypress/e2e/11. P18_POMdemo.cy.js\"",
+    "cy:run": "cypress run -b \"chrome\" --spec \"./cypress/e2e/11. P18_POMdemo.cy.js\"",
+    "JenkinsRun": "start-server-and-test start http://localhost:8080 cy:run"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,10 @@
     "cypress-file-upload": "^5.0.8"
   },
   "dependencies": {
-    "cypress-downloadfile": "^1.2.3"
+    "cypress-downloadfile": "^1.2.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "cypress": "^13.1.0"
   }
 }
