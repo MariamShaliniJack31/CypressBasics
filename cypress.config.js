@@ -18,7 +18,6 @@ module.exports =  defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on("task", { downloadFile });
-      //setupNodeEvents(on, config) {
       // on("task", { isFileExist, findFiles });
       // on("task", verifyDownloadTasks);
       config.env = {
@@ -27,6 +26,23 @@ module.exports =  defineConfig({
       };
       return config;
     },
+    reporter: "mochawesome",
+    reporterOptions: {
+      reportDir: "cypress/results",
+      overwrite: false,
+      html: false,
+      json: true,
+    },
+    screenshotOnRunFailure: false,
+    video: false,
+    retries: {
+      runMode: 2,
+      openMode: 2,
+    },
+    pageLoadTimeout: 2 * 60 * 1000,
+    defaultCommandTimeout: 30 * 1000,
+    requestTimeout: 5 * 60 * 1000,
+    responseTimeout: 5 * 60 * 1000,
   },
   
   component: {

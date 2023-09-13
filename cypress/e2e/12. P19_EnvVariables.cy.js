@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
+// const cypress = require("cypress") This is not Working. Instead of this we gave reference types in commands.js
+
 import { BASE_URL, HOST, XXX, ping, VIEWPORT_WIDTH, VIEWPORT_HEIGHT } from "./constants"
 
-describe('template spec', () => {
+describe('Environment Variables SPEC', () => {
 
   it('Data Driven from cypress.config.js', () => {
     
@@ -21,7 +23,7 @@ describe('template spec', () => {
     
   })
 
-  it('Data Driven from .env File', () => {
+  it('Data Driven from .env File', function() {
     cy.log(BASE_URL);
     cy.log(ping);
     cy.log(HOST);
@@ -38,4 +40,16 @@ describe('template spec', () => {
     cy.title().should('eq', 'nopCommerce demo store')
   })
 
+})
+
+
+describe('Environment Variables SPEC2', () => {
+
+  it('Data Driven from cypress.config.js', () => {
+    
+    cy.log(Cypress.env('google_url'))
+    cy.log(Cypress.env('ORANGEHRM_URL'))
+    cy.log(Cypress.env('BASE_URL'))
+
+  })
 })

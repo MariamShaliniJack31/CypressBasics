@@ -1,5 +1,7 @@
 /// <reference types='cypress' />
 
+/// <reference types='cypress-xpath' />
+
 //import 'cypress-file-upload';
 
 require('cypress-downloadfile/lib/downloadFileCommand')
