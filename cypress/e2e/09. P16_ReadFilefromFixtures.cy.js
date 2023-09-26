@@ -1,16 +1,21 @@
-
 /// <reference types="cypress" />
 
-describe('Hooks in Cypress', () => {
+describe('Read Data from Fixtures files in Cypress', () => {
     
+    let d;
     it('Read File from Fixtures Folder', function(){
         cy.fixture('example.json').then((data) => {
-            this.data = data
-            cy.log(data.name)
+            d = data;
+            cy.log("Data.Name :  "+data.name)
             cy.log(data.email)
             cy.log(data.body)
 
-            cy.log(this.data.name)
+            cy.log("d.name :  "+d.name)
+            cy.log(d.email)
+            cy.log(d.body)
+
+            this.data = data;
+            cy.log("This.d.name :  "+this.data.name)
             cy.log(this.data.email)
             cy.log(this.data.body)
         })  

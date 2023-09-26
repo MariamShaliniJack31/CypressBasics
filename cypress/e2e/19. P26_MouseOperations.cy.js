@@ -54,7 +54,7 @@ describe('Mouse Operations in Cypress', () => {
         cy.xpath("//td[normalize-space()='Algeria']").scrollIntoView({duration:3000}).should('be.visible');
 
         cy.get("#footer").scrollIntoView().should('be.visible');
-        cy.get("#footer>ul>li:nth-child(1)").scrollIntoView().should('be.visible');
+        cy.get("#footer>ul>li:nth-child(1)").scrollIntoView().should('be.visible'); 
     })
     
 })
