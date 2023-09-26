@@ -5,12 +5,39 @@ describe('CheckBoxes in Cypress', function() {
     it('Check all the CheckBoxes', function() {
         
         //Open the Application
-        cy.visit("https://demo.automationtesting.in/Register.html")
+        //cy.visit("https://demo.automationtesting.in/Register.html")
         
-        //cy.visit("https://www.amazon.com/")
-        //Check Title
-        cy.wait(2000)
-        cy.get(".active > a").click()
+        cy.visit("https://cosmocode.io/automation-practice/")
+        
+        //Check Java & Python Checkboxes
+        cy.xpath("//input[@name='language_java']").check().should('be.checked')
+        cy.xpath("//input[@name='language_python']").check().should('be.checked')
+
+        cy.xpath("//input[@name='language_c#']").should('not.be.checked')
+        cy.xpath("//input[@name='language_c']").should('not.be.checked')
+        cy.xpath("//input[@name='language_vbs']").check().should('be.checked')
+
+        cy.xpath("//input[@name='language_java']").uncheck().should('not.be.checked')
+
+        //Unselect all the Checkboxes
+        cy.get("input[type=Checkbox]").uncheck()   
+        cy.wait(1000)
+        cy.get("input[type=Checkbox]").check()   
+
+        cy.get("input[type=Checkbox]").uncheck() 
+        cy.get("input[type=Checkbox]").first().check() 
+        cy.get("input[type=Checkbox]").last().check() 
+       
+        
+        //This is NOT WORKING
+        // cy.get("input[type=Checkbox]").then ( (x) => {
+        //     let checkboxcount = x.length()
+        //     assert(checkboxcount).to.be(checkboxcount)
+            
+
+        // })
+
+
         //cy.title().should('contain', "Amazon.com. Spend less. Smile more.")
 
         //Search for an Item

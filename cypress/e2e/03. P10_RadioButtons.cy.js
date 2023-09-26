@@ -16,7 +16,10 @@ describe('Radio Buttons in Cypress', () => {
 
         cy.get("[type='radio'][value='S']").should('be.visible')
         cy.get("[type='radio'][value='S']").should('not.be.checked')
-        cy.get("input[type='radio'][value='S']").click()
+
+        //Select the Radio Button, below both statements will work
+        //cy.get("input[type='radio'][value='S']").click()
+        cy.get("input[type='radio'][value='S']").check()
 
         
     })

@@ -41,6 +41,7 @@ it('Explicit Assertions', () => {
     // Explicit Assertions expect & assert
     let expectedName = "Shalini"
 
+    cy.log(expectedName)
     cy.get(".oxd-userdropdown-name").then( (x) => {
 
         let actualName = x.text()
