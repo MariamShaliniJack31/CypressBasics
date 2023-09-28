@@ -1,13 +1,14 @@
 const { defineConfig} = require("cypress");
 const { downloadFile } = require("cypress-downloadfile/lib/addPlugin");
 
+
 //import { defineConfig } from 'cypress'      //This is NOT Working
 // load the environment variables from the local .env file
 require('dotenv').config();
 
 module.exports =  defineConfig({
   projectId: 'ttij5a',
-
+  
   env: {
     google_url:       "https://google.com",
     ORANGEHRM_URL:    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
@@ -18,6 +19,7 @@ module.exports =  defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on("task", { downloadFile });
+      require('cypress-mochawesome-reporter/plugin')(on);
       // on("task", { isFileExist, findFiles });
       // on("task", verifyDownloadTasks);
       config.env = {
@@ -26,6 +28,7 @@ module.exports =  defineConfig({
       };
       return config;
     },
+    
     reporter: "mochawesome",
     reporterOptions: {
       reportDir: "cypress/results",
@@ -33,11 +36,22 @@ module.exports =  defineConfig({
       html: false,
       json: true,
     },
-    screenshotOnRunFailure: false,
-    video: false,
+
+    //npm i --save-dev cypress-mochawesome-reporter
+    reporter: 'cypress-mochawesome-reporter',
+      reporterOptions: {
+      charts: true,
+      reportPageTitle: 'Cypress Automation Testing',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+      videoOnFailOnly:true,
+    },
+    screenshotOnRunFailure: true,     
+    video: true,                      //This must be true to get the Video
     retries: {
-      runMode: 2,
-      openMode: 2,
+      runMode: 0,
+      openMode: 0,
     },
     pageLoadTimeout: 2 * 60 * 1000,
     defaultCommandTimeout: 30 * 1000,
