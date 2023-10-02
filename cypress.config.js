@@ -45,9 +45,9 @@ module.exports =  defineConfig({
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,
-      videoOnFailOnly:true,
+      videoOnFailOnly:true,           //This must be true to get the Video
     },
-    screenshotOnRunFailure: true,     
+    screenshotOnRunFailure: true,     //This must be true to get the SS
     video: true,                      //This must be true to get the Video
     retries: {
       runMode: 0,

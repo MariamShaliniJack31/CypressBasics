@@ -14,7 +14,7 @@ describe('Data Driven Testing using Fixtures folder files in Cypress', () => {
                 cy.get("button[type='submit']").click();
 
                 cy.wait(2000);
-
+                cy.log(cy.location("pathname"));
                 if (logindata.username == "Admin" && logindata.password == "admin123") 
                 {
                     cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('be.visible');
