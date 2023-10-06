@@ -1,31 +1,53 @@
-describe('Passing Query Parameters in GET Request in Cypress', () => {
+describe('Headers and Cookies - Passing in Cypress', () => {
 
-    const queryparam = {page:2} ;               //Dont keep inverted commas
-    it("Pass Query Params in GET Request", ()=> {
+    let authToken = null;
+    before("Get Access Token", ()=> {
         cy.request({
-                        method:"GET",
-                        url: "https://reqres.in/api/users",
-                        qs: {page:2}
+                        method: "POST",
+                        url:    "https://simple-books-api.glitch.me/api-clients/",
+                        body: {
+                            clientName: "Test",
+	                        clientEmail: Math.random().toString(5).substring(2)+"@gmail.com"
+                        },
+                        headers: {"Content-Type":  "application/json",}
                     })
-                    .its("statusText")
-                    .should('contain', "OK")
-
+                    .then( (response) => {
+                        expect(response.statusText).to.be.eq("Created")
+                        authToken = response.body.accessToken
+                        cy.log(authToken)
+                    })
     })
 
-    it("Pass Query Params in GET Request", ()=> {
-
+    before("Submit an Order", ()=> {
         cy.request({
-                        method:"GET",
-                        url: "https://reqres.in/api/users",
-                        qs: queryparam
+                        method: "POST",
+                        url:    "https://simple-books-api.glitech.me/orders",
+                        body: {
+                            bookId: 1,
+	                        customerName:	"xyzabc"
+                        },
+                        headers:    {"Content-Type":    "application/json",
+                                     "Authorization":   "Bearer "+ authToken
+                                    }
                     })
                     .then( (response) => {
                         expect(response.status).to.be.eq(200);
                         expect(response.statusText).to.be.eq("OK");
-                        expect(response.body.data).have.length(6);
-                        expect(response.body.data[0]).have.property("first_name", "Michael")
-                        cy.log(response.body.data[0].first_name);
-                        cy.log(response.body.data[0]);
+                    })
+    })
+
+    it("Fetching the Orders", ()=> {
+        cy.request({
+                        method:     "GET",
+                        url:        "https://simple-books-api.glitech.me/orders",
+                        headers:    {"Content-Type":  "application/json",
+                                     "Authorization": "Bearer "+ authToken,
+                                    },
+                        cookies:    {"cookieName": "mycookie"}
+                    })
+                    .then( (response) => {
+                        expect(response.status).to.be.eq(200);
+                        expect(response.statusText).to.be.eq("OK");
                     })
     })
 })

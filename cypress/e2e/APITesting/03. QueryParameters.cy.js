@@ -1,6 +1,6 @@
 describe('Passing Query Parameters in GET Request in Cypress', () => {
 
-    const queryparam = {page:2} ;               //Dont keep inverted commas
+    const queryparam = {page:2};                // Dont keep inverted commas
     it("Pass Query Params in GET Request", ()=> {
         cy.request({
                         method:"GET",
@@ -9,10 +9,9 @@ describe('Passing Query Parameters in GET Request in Cypress', () => {
                     })
                     .its("statusText")
                     .should('contain', "OK")
-
     })
 
-    it("Pass Query Params in GET Request", ()=> {
+    it("Use const variable - Pass Query Params in GET Request", ()=> {
 
         cy.request({
                         method:"GET",

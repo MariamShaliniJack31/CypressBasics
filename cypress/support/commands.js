@@ -7,6 +7,7 @@ import '@4tw/cypress-drag-drop'
 
 require('@4tw/cypress-drag-drop')
 require('cypress-downloadfile/lib/downloadFileCommand')
+require('ajv')
 
 Cypress.Commands.add('logintonopCommerce', (email, password) => { 
     
