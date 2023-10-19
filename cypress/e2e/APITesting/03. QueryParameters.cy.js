@@ -19,7 +19,8 @@ describe('Passing Query Parameters in GET Request in Cypress', () => {
                         qs: queryparam
                     })
                     .then( (response) => {
-                        expect(response.status).to.be.eq(200);
+                        expect(response.status).to.be.equal(200);
+                        assert.equal(response.status, 200);
                         expect(response.statusText).to.be.eq("OK");
                         expect(response.body.data).have.length(6);
                         expect(response.body.data[0]).have.property("first_name", "Michael")

@@ -13,6 +13,9 @@ describe('Authentications in Cypress', () => {
             expect(response.status).to.be.equal(200);
             expect(response.body.authenticated).to.be.equal(true);
             expect(response.body).have.property("authenticated", true);
+
+            assert.equal(response.status, 200)
+            assert.equal(response.body.authenticated, true);
         })     
     })
 
@@ -34,18 +37,32 @@ describe('Authentications in Cypress', () => {
     })
 
     it("Bearer Token - GET", ()=> {
-        let authToken = "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"
+        let authToken = "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"
         cy.request({
                     method:     "GET",
                     url:        "https://api.github.com/user/repos",
-                    headers:    {"Content-Type":    "application/json",
-                                     "Authorization":   "Bearer "+ authToken
-                                    }
-        })
+                    headers:    {
+                                    "Authorization":   "Bearer "+ authToken
+                                },
+                    })
         .then( (response) => {
             expect(response.status).to.be.equal(200);
             expect(response.body[0].name).to.be.equal("API-Automation");
             expect(response.body).have.length(13);
         })     
     })
+
+    // it("API Key - GET", ()=> {
+        
+    //     cy.request({
+    //                 method:     "GET",
+    //                 url:        "https://api.openweathermap.org/data/2.5/forecast/daily?q=Delhi",
+    //                 qs:         {
+    //                                 appid:   "e43304c7dd187fb661ab1e90c98fc799"
+    //                             },
+    //                 })
+    //     .then( (response) => {
+    //         expect(response.status).to.be.equal(200);
+    //     })     
+    // })
 })

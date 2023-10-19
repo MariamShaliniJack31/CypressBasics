@@ -12,7 +12,7 @@ module.exports =  defineConfig({
   env: {
     google_url:       "https://google.com",
     ORANGEHRM_URL:    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
-    BASE_URL:         "https://www.base.cominconfigjs",
+    BASE_URLLL:         "https://www.base.cominconfigjsllllllllllllllll",
   },
 
   e2e: {
