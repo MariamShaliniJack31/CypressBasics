@@ -1,8 +1,8 @@
 export class dd_loginclass {
 
-    txtBox_email = "#email";
-    txtBox_pwd = "#password"
-    btn_login = "button[type='submit']";
+    txtBox_email    = "#email";
+    txtBox_pwd      = "#password"
+    btn_login       = "button[type='submit']";
 
     enterEMailID(email){
         cy.get(this.txtBox_email).clear().type(email)

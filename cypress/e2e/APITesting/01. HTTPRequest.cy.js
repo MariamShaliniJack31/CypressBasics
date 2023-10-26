@@ -1,5 +1,5 @@
 describe('API Automation in Cypress', () => {
-
+    // Get a property's value on the previously yielded subject.
     it("GET Request", ()=> {
 
         cy.request("GET", "https://jsonplaceholder.typicode.com/posts/1")

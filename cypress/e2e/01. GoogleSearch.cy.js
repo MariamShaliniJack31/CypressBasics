@@ -25,7 +25,9 @@ it('Google Search', () => {
     
 
     cy.wait("@GoogleSearchScreen").its("response.statusCode").should("equal", 200);
-
     cy.wait("@GoogleSearchScreen2").its("response.statusCode").should("equal", 200);
+
+    cy.document().its('contentType').should('eq', 'text/html')
+    cy.log(cy.root());
     
 })

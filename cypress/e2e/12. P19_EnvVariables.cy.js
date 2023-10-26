@@ -11,7 +11,7 @@ describe('Environment Variables SPEC', () => {
     cy.log("Same Env Variables given in json file takes more priority than config.js")
     cy.log(Cypress.env('google_url'))
     cy.log(Cypress.env('ORANGEHRM_URL'))
-    cy.log(Cypress.env('BASE_URLLL'))
+    cy.log(Cypress.env('BASE_URL'))
   })
 
   it('Data Driven from cypress.env.json File', () => {
@@ -47,7 +47,6 @@ describe('Environment Variables SPEC', () => {
   })
 
 })
-
 
 describe('Environment Variables SPEC2', () => {
 

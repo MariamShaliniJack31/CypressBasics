@@ -23,6 +23,7 @@ describe('Read Data from Fixtures files in Cypress', () => {
 
     it('Read File from Folder different than Fixtures', function(){
         cy.readFile('./cypress/ReadandWriteFile.txt').then((data) => {
+            expect(data).contains("2023")
             cy.log(data)
         })  
     })
