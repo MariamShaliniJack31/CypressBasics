@@ -9,9 +9,8 @@
     "Runtest": "npx cypress run --record --key a0c09ff5-ca84-4bec-b555-8e9bb48ca0ea --headed -b \"chrome\" --spec \"./cypress/e2e/11. P18_POMdemo.cy.js\"",
     "cy:run": "cypress run --headed -b \"chrome\" --spec \"./cypress/e2e/11. P18_POMdemo.cy.js\"",
     "JenkinsRun": "start-server-and-test start http://localhost:8080 cy:run",
-    "cy:run:prod":"cypress run --env ENV=production --headed -b \"chrome\" --spec \"./cypress/e2e/30. SwitchConfigFiles&Env.cy.js\"",
-    //Use npm run cy:run:stg
-    "cy:run:stg":"cypress run --env ENV=staging --headed -b \"chrome\" --spec \"./cypress/e2e/30. SwitchConfigFiles&Env.cy.js\""
+    "cy:run:prod": "cypress run --env ENV=production --headed -b \"chrome\" --spec \"./cypress/e2e/30. SwitchConfigFiles&Env.cy.js\"",
+    "cy:run:stg": "cypress run --env ENV=staging --headed -b \"chrome\" --spec \"./cypress/e2e/30. SwitchConfigFiles&Env.cy.js\""
   },
   "keywords": [],
   "author": "",
@@ -31,7 +30,7 @@
     "cypress": "^13.1.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-iframe": "^1.0.1",
-    "cypress-mochawesome-reporter": "^3.6.0",
+    "cypress-mochawesome-reporter": "^3.6.1",
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",

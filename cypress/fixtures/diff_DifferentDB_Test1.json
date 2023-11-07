@@ -1,0 +1,98 @@
+[
+    {
+    "DATABASE_SRC":"bigquery_src",
+    "DATABASE_TRGT":"mysql_source",
+    "DS_SRC":"bigquery_src",
+    "DS_TRGT":"Mysql_source",
+    "DS_SRC_TABLE":["ALLNUMERIC_2","allstringdata_1","mixeddata_3","unicode_1","datetimestamp_2"],
+    "DS_TRGT_TABLE":["allnumeric_2","allstringdata_1","mixeddata_3","unicode_1","datetimestamp_2"],
+    "PK":[["ROWID"],["CUSTOMERID"],["SNO"],["SAMPLEID"],["SNO"]],
+    "diffStats":[
+                  {"DIFF_ROW":"0",
+                  "SAME_ROW":"500",
+                  "ROWS_IN_SOURCE":"500",
+                  "ROWS_IN_TARGET":"500",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                 },
+                 {
+                  "DIFF_ROW":"6",
+                  "SAME_ROW":"982",
+                  "ROWS_IN_SOURCE":"988",
+                  "ROWS_IN_TARGET":"988",
+                 "MISSING_ROWS_IN_TARGET":"0",
+                  "NEW_ROWS_IN_TARGET":"0"
+                },
+                {
+                   "DIFF_ROW":"0",
+                    "SAME_ROW":"500",
+                   "ROWS_IN_SOURCE":"500",
+                  "ROWS_IN_TARGET":"500",
+                  "MISSING_ROWS_IN_TARGET":"0",
+                  "NEW_ROWS_IN_TARGET":"0"
+                },
+
+               { 
+                  "DIFF_ROW":"0",
+                  "SAME_ROW":"12",
+                 "ROWS_IN_SOURCE":"12",
+                "ROWS_IN_TARGET":"12",
+                "MISSING_ROWS_IN_TARGET":"0",
+                "NEW_ROWS_IN_TARGET":"0"
+              },
+
+             {
+                "DIFF_ROW":"0",
+                "SAME_ROW":"950",
+                "ROWS_IN_SOURCE":"950",
+                "ROWS_IN_TARGET":"950",
+                "MISSING_ROWS_IN_TARGET":"0",
+                "NEW_ROWS_IN_TARGET":"0"
+             }]        
+        
+},
+
+  {
+    "DATABASE_SRC":"bigquery_src",
+    "DATABASE_TRGT":"redshift_source",
+    "DS_SRC":"bigquery_src",
+    "DS_TRGT":"redshift_source",
+    "DS_SRC_TABLE":["time_2","phonenumbers_1","newlinechracters","product"],
+    "DS_TRGT_TABLE":["time_2","phonenumbers_1","newlinechracters","product"],
+    "PK":[["SNO"],["SNO"],["SNO"],["SNO"]],
+    "diffStats":[
+                  {"DIFF_ROW":"0",
+                  "SAME_ROW":"1000",
+                  "ROWS_IN_SOURCE":"1000",
+                  "ROWS_IN_TARGET":"1000",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                 },
+                 {
+                  "DIFF_ROW":"0",
+                  "SAME_ROW":"250",
+                  "ROWS_IN_SOURCE":"250",
+                  "ROWS_IN_TARGET":"250",
+                 "MISSING_ROWS_IN_TARGET":"0",
+                  "NEW_ROWS_IN_TARGET":"0"
+                },
+                {
+                   "DIFF_ROW":"0",
+                    "SAME_ROW":"50",
+                   "ROWS_IN_SOURCE":"50",
+                  "ROWS_IN_TARGET":"50",
+                  "MISSING_ROWS_IN_TARGET":"0",
+                  "NEW_ROWS_IN_TARGET":"0"
+                },
+
+               {
+                "DIFF_ROW":"0",
+                "SAME_ROW":"27",
+                "ROWS_IN_SOURCE":"27",
+                "ROWS_IN_TARGET":"27",
+                "MISSING_ROWS_IN_TARGET":"0",
+                "NEW_ROWS_IN_TARGET":"0"
+             }]        
+        
+}
+]

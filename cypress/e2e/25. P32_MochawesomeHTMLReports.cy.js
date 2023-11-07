@@ -11,6 +11,7 @@ describe('Cypress-Mochawesome-Reporter', () => {
 
     it('Videos under reports > videos', () => {
         
+        //reports folder gets created automatically
         //When you execute the Cypress test using command prompt or CI tool, then screenshots/videos 
         //will be captured at failed steps. 
         //If you execute through Test Runner, it will not capture screenshots on failure
@@ -24,7 +25,7 @@ describe('Cypress-Mochawesome-Reporter', () => {
         cy.get("div[id='content'] h2").should('have.text', "Tablets")
 
         //https://github.com/LironEr/cypress-mochawesome-reporter/tree/master
-        //Run npx cypress run --reporter mochawesome
+        //Run npx cypress run --reporter mochawesome --spec "cypress\e2e\25. P32_MochawesomeHTMLReports.cy.js" --browser chrome --headed
         //Run npx cypress run --reporter mochawesome
         //see the html Report in D:/Shalini/Cypress/CypressBasics/cypress/reports/html/index.html
     })  

@@ -1,0 +1,41 @@
+[
+
+{
+    "importJson":"cypress/fixtures/mysql.json",
+    "DS_SOURCE":"Mysql_source",
+    "DS_TARGET":"Mysql_target"
+
+},
+{
+    "importJson":"cypress/fixtures/mariadb.json",
+    "DS_SOURCE":"MariaDB_Source",
+    "DS_TARGET":"MariaDB_Target"
+
+},
+{
+    "importJson":"cypress/fixtures/redshift.json",
+    "DS_SOURCE":"redshift_source",
+    "DS_TARGET":"redshift_target"
+
+},
+
+{
+
+    "importJson":"cypress/fixtures/postgres.json",
+    "DS_SOURCE":"postgres_source",
+    "DS_TARGET":"postgres_target"
+
+},
+{
+    "importJson":"cypress/fixtures/db2json.json",
+    "DS_SOURCE":"DB2_source",
+    "DS_TARGET":"DB2_target"
+
+},
+{
+    "importJson":"cypress/fixtures/sqlservertest.json",
+    "DS_SOURCE":"sqlserver_dev",
+    "DS_TARGET":"sqlserver_test"
+
+}
+]

@@ -1,0 +1,38 @@
+{
+    "HOMEPAGE_URL":"https://testing.datadios.com/home",
+    "LOGIN_URL":"https://testing.datadios.com/login",
+    "DATASOURCE_URL":"https://testing.datadios.com/data-source/sources",
+
+    "S2P_URL":"https://testing.datadios.com/s2p/supported-stages",
+    "P2P_URL":"https://testing.datadios.com/p2p/workflows",
+    "SMARTDIFF_URL":"https://testing.datadios.com/datadiff/workflows",
+    "CREATEDIFF_URL":"https://testing.datadios.com/datadiff/workflows/create-data-source-diff",
+
+    "USERNAME":"endtoendtest95", 
+    "ADMIN_USERNAME":"DD10",
+
+    "ITEM_DS":"Data Source",
+    "ITEM_DS_LIST1":"Sources",
+    "ITEM_DS_LIST2": "Types",
+
+    "ITEM_S2P":"S2P",
+    "ITEM_S2P_LIST1":"Workflows",
+    "ITEM_S2P_LIST2":"Stages",
+
+    "ITEM_P2P":"P2P",
+    "ITEM_P2P_LIST1":"Workflows",
+    "ITEM_P2P_LIST2":"Stages",
+
+    "ITEM_SMARTDIFF":"SmartDiff",
+    "ITEM_SMARTDIFF_LIST1":"Workflows",
+
+    "DATABASE_MYSQL_SRC":"mysql_source",
+    "DATABASE_MYSQL_TRGT":"mysql_target",
+    "DS_MYSQL_SRC":"Mysql_source", 
+    "DS_MYSQL_TRGT":"Mysql_target",
+
+    "DATABASE_BIGQUERY_SRC":"bigquery_src",
+    "DATABASE_BIGQUERY_TRGT":"bigquery_trgt",
+    "DS_BIGQUERY_SRC":"bigquery_src", 
+    "DS_BIGQUERY_TRGT":"bigquery_trgt"
+}

@@ -1,0 +1,110 @@
+[   
+    {
+        "DATASOURCE":"MariaDB_Source",
+        "DATABASE":"maraiadb_src",
+        "TABLES":"18",
+        "URL":"https://testing.datadios.com/data-source/sources/MariaDB_Source"
+
+    },    
+    {
+        "DATASOURCE":"MariaDB_Target",
+        "DATABASE":"mariadb_trgt",
+        "TABLES":"53",
+         "URL":"https://testing.datadios.com/data-source/sources/MariaDB_Target"
+
+    },
+    {
+    "DATASOURCE":"Mysql_source",
+    "DATABASE":"mysql_source",
+    "TABLES":"17",
+    "URL":"https://testing.datadios.com/data-source/sources/Mysql_source"
+    },
+
+    {
+    "DATASOURCE":"Mysql_target",
+    "DATABASE":"mysql_target",
+    "TABLES":"55",   
+     "URL":"https://testing.datadios.com/data-source/sources/Mysql_target"
+    },
+    {
+    "DATASOURCE":"bigquery_src",
+    "DATABASE":"bigquery_src",
+    "TABLES":"14",
+    "URL":"https://testing.datadios.com/data-source/sources/bigquery_src"
+    },
+
+    {
+    "DATASOURCE":"bigquery_trgt",
+    "DATABASE":"bigquery_trgt",
+    "TABLES":"59",
+    "URL":"https://testing.datadios.com/data-source/sources/bigquery_trgt"
+    },
+
+    {
+    "DATASOURCE":"redshift_source",
+    "DATABASE":"redshift_source",
+    "TABLES":"18",
+    "URL":"https://testing.datadios.com/data-source/sources/redshift_source"
+
+    },
+    {
+    "DATASOURCE":"redshift_target",
+    "DATABASE":"redshift_target",
+    "TABLES":"52",
+    "URL":"https://testing.datadios.com/data-source/sources/redshift_target"
+    },
+    {
+        "DATASOURCE":"DB2_source",
+        "DATABASE":"SMARTDIF_SRC",
+        "TABLES":"18",
+        "URL":"https://testing.datadios.com/data-source/sources/DB2_source"
+    },
+
+    {
+        "DATASOURCE":"DB2_target",
+        "DATABASE":"SMARTDIF_TRGT",
+        "TABLES":"57",
+        "URL":"https://testing.datadios.com/data-source/sources/DB2_target"
+    },
+
+    {
+        "DATASOURCE":"SQL_dev",
+        "DATABASE":"Dev",
+        "TABLES":"88",
+        "URL":"https://testing.datadios.com/data-source/sources/SQL_dev"
+
+    },
+
+    {
+        "DATASOURCE":"Oracle_srce",
+        "DATABASE":"ORCL_SRCE",
+        "TABLES":"17",
+        "URL":"https://testing.datadios.com/data-source/sources/Oracle_srce"
+    
+    },
+    {
+
+        "DATASOURCE":"SQL_test",
+        "DATABASE":"Test",
+        "TABLES":"36",
+        "URL":"https://testing.datadios.com/data-source/sources/SQL_test"
+    },
+
+    {
+        "DATASOURCE":"postgres_source",
+        "DATABASE":"dev",
+        "TABLES":"15",
+        "URL":"https://testing.datadios.com/data-source/sources/postgres_source"
+    
+    },
+    
+    {
+        "DATASOURCE":"postgres_target",
+        "DATABASE":"test",
+        "TABLES":"58", 
+        "URL":"https://testing.datadios.com/data-source/sources/postgres_target"
+    
+        }
+
+
+]

@@ -9,7 +9,8 @@ const { downloadFile } = require("cypress-downloadfile/lib/addPlugin");
 require('dotenv').config();
 
 module.exports =  defineConfig({
-  projectId: 'ttij5a',
+  projectId:  'ttij5a',
+  
   
   env: {
     google_url:       "https://google.com",
@@ -18,6 +19,7 @@ module.exports =  defineConfig({
   },
 
   e2e: {
+    baseUrl:     "https://amazon.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on("task", { downloadFile });                   //Occurs in conjunction with the cy.task command
@@ -46,13 +48,13 @@ module.exports =  defineConfig({
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,
-      videoOnFailOnly:true,           //This must be true to get the Video
+      videoOnFailOnly:true,            //This must be true to get the Video
     },
-    screenshotOnRunFailure: true,     //This must be true to get the SS
-    video: true,                      //This must be true to get the Video - This is main
+    screenshotOnRunFailure: true,       //This must be true to get the SS
+    video: false,                       //This must be true to get the Video - This is main
     retries: {
-      runMode: 0,
-      openMode: 0,
+      runMode: 0,                       //  When running using Command Line CLI, run these many items
+      openMode: 0,                      //  When running using Test Runner, run these many items
     },
     pageLoadTimeout: 2 * 60 * 1000,
     defaultCommandTimeout: 30 * 1000,

@@ -1,0 +1,22 @@
+[
+    {
+        "EMAIL":"endtoendtest@datadios.com",
+        "PASSWORD":"endtoend123456",
+        "EXPECTED":"CORRECT CREDENTIALS"
+    },
+    {
+        "EMAIL":"XYXYZZZ@GMAIL.COM",
+        "PASSWORD":"endtoend123456",
+        "EXPECTED":"User account for this mail ID is not found"
+    },
+    {
+        "EMAIL":"endtoendtest@datadios.com",
+        "PASSWORD":"HELLO123",
+        "EXPECTED":"Wrong password"
+    },
+    {
+        "EMAIL":"endtoenD@datadios.com",
+        "PASSWORD":"endtoe",
+        "EXPECTED":"User account for this mail ID is not found"
+    }
+]

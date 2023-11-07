@@ -7,5 +7,6 @@ describe("Action Commands", ()=>{
         cy.log(Cypress.platform)            //win32
         cy.log(Cypress.browser.name)        //chrome
         cy.log(Cypress.env("testUser"))     //Defined in cypress.env.json
+
     })
 })

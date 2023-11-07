@@ -1,8 +1,10 @@
 //  /// <reference types="cypress" />
 
 //const { should } = require("chai")
+Cypress.config("defaultCommandTimeout", 10000)
 
-it('Google Search', () => {
+
+it('Google Search',{defaultCommandTimeout: 5000}, () => {
     cy.intercept("POST", "/log?format=json&hasfast=true&authuser=0", "success").as("GoogleSearchScreen");
 
     cy.intercept('POST', '/log?format=json&hasfast=true&authuser=0', (req) => {
@@ -29,5 +31,13 @@ it('Google Search', () => {
 
     cy.document().its('contentType').should('eq', 'text/html')
     cy.log(cy.root());
+
+    cy.log(Cypress.env("baseUrl"))          // This is getting called from cypress.env.json
+    cy.visit("/")                           //This is getting called from config.js, but if we give in CLI, CLI takes priority
     
+    let cmdLineurl = Cypress.config().baseUrl;    
+    cy.log(cmdLineurl);                     //This is coming from CMD Line
+
+
+    //npx cypress run --spec "cypress\e2e\01. GoogleSearch.cy.js" --headed --config baseUrl="https://facebook.com"
 })

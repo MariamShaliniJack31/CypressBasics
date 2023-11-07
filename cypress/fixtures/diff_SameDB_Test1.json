@@ -1,0 +1,124 @@
+[
+
+  
+    {
+     "DATABASE_SRC":"bigquery_src",
+     "DATABASE_TRGT":"bigquery_trgt",
+     "DS_SRC":"bigquery_src",
+     "DS_TRGT":"bigquery_trgt",
+     "DS_SRC_TABLE":["date_2","time_2","chinesewords_2","binarydata_1","ALLNUMERIC_2"],
+     "DS_TRGT_TABLE":["date_2","time_2","chinesewords_2","binarydata_1","ALLNUMERIC_2"],
+     "PK":[["SNO"],["SNO"],["SNO"],["CUSTOMERID"],["ROWID"]],
+     "diffStats":[{ "DIFF_ROW":"0",
+                   "SAME_ROW":"950",
+                   "ROWS_IN_SOURCE":"950",
+                   "ROWS_IN_TARGET":"950",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                  },
+                  {"DIFF_ROW":"0",
+                   "SAME_ROW":"1000",
+                   "ROWS_IN_SOURCE":"1000",
+                   "ROWS_IN_TARGET":"1000",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                  }, 
+                  {"DIFF_ROW":"0",
+                   "SAME_ROW":"27",
+                   "ROWS_IN_SOURCE":"27",
+                   "ROWS_IN_TARGET":"27",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                  },                 
+                 { "DIFF_ROW":"0",
+                   "SAME_ROW":"988",
+                   "ROWS_IN_SOURCE":"988",
+                   "ROWS_IN_TARGET":"988",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                 }, 
+                 { "DIFF_ROW":"0",
+                   "SAME_ROW":"500",
+                   "ROWS_IN_SOURCE":"500",
+                   "ROWS_IN_TARGET":"500",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0" 
+               }]
+     },
+ 
+     {
+       "DATABASE_SRC":"mysql_source",
+       "DATABASE_TRGT":"mysql_target",
+       "DS_SRC":"Mysql_source",
+       "DS_TRGT":"Mysql_target",
+       "DS_SRC_TABLE":["applicantpersonaldata"],
+       "DS_TRGT_TABLE":["applicantpersonaldata_difdatatyp_2"],
+       "PK":[["CUSTOMERID"]],
+       "diffStats":[
+                     {"DIFF_ROW":"5014",
+                     "SAME_ROW":"0",
+                     "ROWS_IN_SOURCE":"5014",
+                     "ROWS_IN_TARGET":"5014",
+                      "MISSING_ROWS_IN_TARGET":"0",
+                      "NEW_ROWS_IN_TARGET":"0"
+                    }]   
+    },  
+ 
+       {
+        "DATABASE_SRC":"bigquery_src",
+        "DATABASE_TRGT":"bigquery_trgt",
+        "DS_SRC":"bigquery_src",
+        "DS_TRGT":"bigquery_trgt",
+       "DS_SRC_TABLE":["ALLNUMERIC_2","allstringdata_1","mixeddata_3","chinesewords_2","datetimestamp_2"],
+       "DS_TRGT_TABLE":["allnumeric_2_extrrw","allstringdata_1_msngrw","mixeddata_3_difstr","chinesewords_2_smdif","datetimestamp_2_entdif"],
+       "PK":[["ROWID"],["CUSTOMERID"],["SNO"],["SNO"],["SNO"]],
+       "diffStats":[
+                     {"DIFF_ROW":"20",
+                     "SAME_ROW":"500",
+                     "ROWS_IN_SOURCE":"500",
+                     "ROWS_IN_TARGET":"520",
+                      "MISSING_ROWS_IN_TARGET":"0",
+                      "NEW_ROWS_IN_TARGET":"20"
+                    },
+                    {
+                     "DIFF_ROW":"73",
+                     "SAME_ROW":"915",
+                     "ROWS_IN_SOURCE":"988",
+                     "ROWS_IN_TARGET":"917",
+                    "MISSING_ROWS_IN_TARGET":"71",
+                     "NEW_ROWS_IN_TARGET":"0"
+                   },
+                   {
+                      "DIFF_ROW":"44",
+                       "SAME_ROW":"456",
+                      "ROWS_IN_SOURCE":"500",
+                     "ROWS_IN_TARGET":"500",
+                     "MISSING_ROWS_IN_TARGET":"0",
+                     "NEW_ROWS_IN_TARGET":"0"
+                   }, 
+                  { 
+                     "DIFF_ROW":"9",
+                     "SAME_ROW":"18",
+                    "ROWS_IN_SOURCE":"27",
+                   "ROWS_IN_TARGET":"27",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                 },
+                {
+                   "DIFF_ROW":"950",
+                   "SAME_ROW":"0",
+                   "ROWS_IN_SOURCE":"950",
+                   "ROWS_IN_TARGET":"950",
+                   "MISSING_ROWS_IN_TARGET":"0",
+                   "NEW_ROWS_IN_TARGET":"0"
+                }]        
+           
+                }
+ 
+                
+ ]
+ 
+ 
+ 
+ 
+ 
