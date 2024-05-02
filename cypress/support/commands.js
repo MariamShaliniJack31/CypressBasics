@@ -4,15 +4,20 @@
 import 'cypress-file-upload';
 import 'cypress-iframe'
 import '@4tw/cypress-drag-drop'
+import { verifyDownloadTasks } from 'cy-verify-downloads';  // Importing the verifyDownloadTasks object from its module
 
-require('@4tw/cypress-drag-drop')
-require('cypress-downloadfile/lib/downloadFileCommand')
-require('ajv')
+require('@4tw/cypress-drag-drop');
+require('cypress-downloadfile/lib/downloadFileCommand');
+require('ajv');
+require('cy-verify-downloads').addCustomCommand();
+const fs = require('fs-extra')
+const path = require('path')
 
 export default function addCustomCommands() {
   // all the Cypress.Commands.add calls
   Cypress.Commands.add('login', (email,password))
   Cypress.Commands.add("selectHomePageItem",(ITEM,ITEM_LIST))
+  
 }
 
 import DataDios_LoginPage from "../../cypress/e2e/DataDios_PageObjects/DataDios_LoginPage.cy"
@@ -22,10 +27,31 @@ import DataDios_SmartDiffPage from "../../cypress/e2e/DataDios_PageObjects/DataD
 import userdata from "../fixtures/userdata.json"
 import smartdiffdata from "../fixtures/smartdiffdata.json"
 
-
 const loginpage = new DataDios_LoginPage();
 const homepage = new DataDios_HomePage();
 const sourcepage = new DataDios_DataSourcePage();
+
+// Cypress.Commands.add('findFiles', (path, filename) => {
+//   // Defining the custom command 'findFiles'
+//   cy.pause();
+//   cy.log(path);
+//   cy.log(filename);
+//   cy.wrap(
+//     new Cypress.Promise((resolve, reject) => {
+//       verifyDownloadTasks.findFiles({ path, filename })
+//         .then(result => {
+//           // Assuming findFiles resolves with an array of files or null
+//           console.log(filename + "EXISTS IN PATH : " + path );
+//           resolve(result);
+//         })
+//         .catch(error => {
+//           reject(error);
+//         });
+//     })
+//   ).as('foundFiles');
+
+  
+// });
 
 //login with email and passowrd
 Cypress.Commands.add('login', (email,password) => {

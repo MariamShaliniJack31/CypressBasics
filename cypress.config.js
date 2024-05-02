@@ -2,7 +2,9 @@ const { defineConfig} = require("cypress");
 const { downloadFile } = require("cypress-downloadfile/lib/addPlugin");
 //const fs = require('fs-extra')
 //const path = require('path')
+const { verifyDownloadTasks, isFileExist, findFiles} = require('cy-verify-downloads');
 
+   
 
 //import { defineConfig } from 'cypress'      //This is NOT Working.
 // load the environment variables from the local .env file
@@ -10,8 +12,6 @@ require('dotenv').config();
 
 module.exports =  defineConfig({
   projectId:  'ttij5a',
-  
-  
   env: {
     google_url:       "https://google.com",
     ORANGEHRM_URL:    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
@@ -22,7 +22,11 @@ module.exports =  defineConfig({
     baseUrl:     "https://amazon.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      on("task", { downloadFile });                   //Occurs in conjunction with the cy.task command
+      on("task", { downloadFile , verifyDownloadTasks, isFileExist, findFiles      
+      });                   //Occurs in conjunction with the cy.task command
+
+     
+      
       require('cypress-mochawesome-reporter/plugin')(on);
       //config.defaultCommandTimeout = 10000          // This line takes priority than 59
       config.env = {
@@ -31,7 +35,6 @@ module.exports =  defineConfig({
       };
       return config;                                //If you don't return an object, then configuration will not be modified.
     },
-    
     reporter: "mochawesome",
     reporterOptions: {
       reportDir: "cypress/results",
@@ -60,6 +63,7 @@ module.exports =  defineConfig({
     defaultCommandTimeout: 30 * 1000,
     requestTimeout: 5 * 60 * 1000,
     responseTimeout: 5 * 60 * 1000,
+    downloadsFolder : "cypress/downloads",
   },
   
   component: {
