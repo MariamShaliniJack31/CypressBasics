@@ -1,11 +1,11 @@
 describe('Alerts in Cypress', () => {
     
-    it('Alert Text', () => {
+    it.only('Alert Text can use Cypress also', () => {
         
         //Open the Application
-        cy.visit('https://mail.rediff.com/cgi-bin/login.cgi')
+        cy.visit('https://mail.rediff.com/cgi-bin/login.cgi');
         cy.get('input[type=submit]').click()
-        //Alert Handling
+        //Alert Handling Cypress.on('window:alert', (str) =>
         cy.on('window:alert', (str) =>
             expect(str).to.equal("Please enter a valid user name")
         )
@@ -17,9 +17,9 @@ describe('Alerts in Cypress', () => {
         cy.visit('https://testautomationpractice.blogspot.com/')
         cy.get('[onclick="myFunctionConfirm()"]').click()
         //Alert Handling
-        cy.on('window:confirm', (str) =>
+        cy.on('window:confirm', (str) => {
             expect(str).to.contains("button")
-        )
+        })
         cy.xpath("//p[@id='demo']").should('have.text', "You pressed OK!")
     })
 
@@ -43,14 +43,14 @@ describe('Alerts in Cypress', () => {
         
         //STUBS / SPIES
         cy.window().then( (win) => { 
-            cy.stub(win, 'prompt').returns('welcome');
+            cy.stub(win, 'prompt').returns('SHALINI');
         })
         cy.xpath("//button[normalize-space()='Prompt']").click();
         
-        cy.get("p#demo").should('have.text', "Hello welcome! How are you today?")    
+        cy.get("p#demo").should('contain', "How are you today?")    
     })
 
-    ///////This is not Working
+    ///////This is not Working DONT KNOW HOW TO CLICK ON CANCEL
     it.skip('Prompt Alert Text : Cancel Button', () => {
         
         //Open the Application
@@ -58,7 +58,7 @@ describe('Alerts in Cypress', () => {
         
         //STUBS / SPIES
         cy.window().then( (win) => { 
-            cy.stub(win, 'prompt').returns('welcome');
+            cy.stub(win, 'prompt').returns('JUTURU');
         })
         cy.xpath("//button[normalize-space()='Prompt']").click();
         
@@ -68,7 +68,7 @@ describe('Alerts in Cypress', () => {
         cy.get("p#demo").should('have.text', "User cancelled the prompt.")    
     })
 
-    it.only('Authenticated Alerts', () => {
+    it('Authenticated Alerts', () => {
         
         //Open the Application
         cy.visit("https://admin:admin@the-internet.herokuapp.com/basic_auth")

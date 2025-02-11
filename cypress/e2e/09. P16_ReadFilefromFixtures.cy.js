@@ -3,19 +3,16 @@
 describe('Read Data from Fixtures files in Cypress', () => {
     
     let d;
-    it('Read File from Fixtures Folder', function(){
-        cy.fixture('example.json').then((data) => {
-            d = data;
+    it.only('Read File from Fixtures Folder', function(){
+        //example.json is in Fixtures Folder, so we used cy.fixture
+        cy.fixture('example.json').then(function (data)  {
+            this.data = data;
             cy.log("Data.Name :  "+data.name)
             cy.log(data.email)
             cy.log(data.body)
+            cy.log(data.arr[0].Expected);
 
-            cy.log("d.name :  "+d.name)
-            cy.log(d.email)
-            cy.log(d.body)
-
-            this.data = data;
-            cy.log("This.d.name :  "+this.data.name)
+            cy.log("This.d.name :  " +this.name)        //undefined
             cy.log(this.data.email)
             cy.log(this.data.body)
         })  
@@ -35,7 +32,7 @@ describe('Read Data from Fixtures files in Cypress', () => {
     })
 
     it('Write content File from Folder different than Fixtures', function(){
-        cy.writeFile('./cypress/ReadandWriteFile.txt', '\nI am appending', {flag:'a+'})
+        cy.writeFile('./cypress/ReadandWriteFile.txt', '\nI am appending', {flag:'a'})
         cy.readFile('./cypress/ReadandWriteFile.txt').then((data) => {
             cy.log(data)
         })    

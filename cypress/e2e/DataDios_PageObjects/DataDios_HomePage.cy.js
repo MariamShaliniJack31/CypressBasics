@@ -9,7 +9,7 @@ import {
 import DataDios_LoginPage from "./DataDios_DataSourcePage.cy"
 
 class DataDios_HomePage{
-
+    
     getLogout(){
         return  cy.get("div[class$='dropdown is-hoverable is-right']")
     }

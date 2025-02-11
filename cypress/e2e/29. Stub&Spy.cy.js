@@ -33,12 +33,11 @@ describe("Stubbing & Spying", ()=>{
         })
     })
 
-    it("Spying and Response Stubbing with Static Response", ()=>{
-
+    it.only("Spying and Response Stubbing with Static Response", ()=>{
         //  You can even stub and mock a request's response
         //  By passing in a StaticResponse as the last argument, you can statically define (stub) a response for matched requests. See StaticResponse object for the list of properties.
         //   cy.intercept(method, url, staticResponse)
-        cy.intercept("GET", "/posts", {totalpost: "59**********&&&&&&&&&99", name: "Naveen"}).as("postslink");
+        cy.intercept("GET", "/posts", {totalpost: "59*%%****&&&&99", name: "Naveen"}).as("postslink");
         
         cy.visit("https://jsonplaceholder.typicode.com")
         cy.get("table:nth-of-type(1) a[href='/posts']").click()
@@ -51,7 +50,7 @@ describe("Stubbing & Spying", ()=>{
         cy.intercept("GET", "/posts", {fixture: 'example.json', totalpost: "59**********&&&&&&&&&99", name: "Naveen", }).as("postslink");
         
         cy.visit("https://jsonplaceholder.typicode.com")
-        cy.get("table:nth-of-type(1) a[href='/posts']").click()
+        cy.get("table:nth-of-type(1) a[href='/posts']").click({force:true});
         cy.wait("@postslink").its("response.statusCode").should("equal", 200);
     })
 })

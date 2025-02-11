@@ -26,7 +26,7 @@ describe('DropDowns in Cypress', function() {
         //have.text is giving all countries...so changed to have.value
     })
     
-    it('DropDowns with span/div Tag or BootStrap DD', () => {
+    it.only('DropDowns with span/div Tag or BootStrap DD', () => {
         
         //Open the Application
         cy.visit("https://www.dummyticket.com/dummy-ticket-for-visa-application/")

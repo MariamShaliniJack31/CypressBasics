@@ -11,16 +11,16 @@ describe('Radio Buttons in Cypress', () => {
         cy.title().should('contain', "Flight Ticket Online at Mercury Travels")
 
         //Click on Search Button
-        cy.get("[type='radio'][value='R']").should('be.visible')
+        cy.get("input[type='radio'][value='R']").should('be.visible')
         cy.get("[type='radio'][value='R']").should('be.checked')
 
-        cy.get("[type='radio'][value='S']").should('be.visible')
+        cy.get("input[type='radio'][value='S']").should('be.visible')
         cy.get("[type='radio'][value='S']").should('not.be.checked')
 
         //Select the Radio Button, below both statements will work
         //cy.get("input[type='radio'][value='S']").click()
         cy.get("input[type='radio'][value='S']").check()
 
-        
+        cy.pause();
     })
 })

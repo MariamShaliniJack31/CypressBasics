@@ -10,10 +10,11 @@ describe('Switch Config Files & Envs', () => {
   it('Get Env from Config File & Run from Cmd Line', () => {
 
     cy.log(Cypress.env("baseUrl"))                //This is coming from cypress.env.json
-    let cmdLineurl = Cypress.config().baseUrl;    
+    let cmdLineurl = Cypress.config().baseUrl;    ////This is coming from cypress.config.js
     cy.log(cmdLineurl);                           // This is coming from baseUrl in Line 9
 
     cy.log(url)           
     cy.visit(url)                                 // This is coming from ENV in Line 9
+    cy.pause();
   })
 })

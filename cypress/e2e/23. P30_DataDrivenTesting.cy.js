@@ -9,8 +9,8 @@ describe('Data Driven Testing using Fixtures folder files in Cypress', () => {
 
                 cy.log(logindata.username)
                 cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-                cy.get("input[placeholder='Username']").type(logindata.username);
-                cy.get("input[placeholder='Password']").type(logindata.password);
+                cy.get("input[placeholder='username']").type(logindata.username);
+                cy.get("input[placeholder='password']").type(logindata.password);
                 cy.get("button[type='submit']").click();
 
                 cy.wait(2000);

@@ -3,7 +3,11 @@
 describe('Locators in Cypress', () => {
     
     it('Check Product in nopCommerce and see the Unit Price', () => {
-        
+        /* 
+        ID          = #
+        Class       = .
+        Attribute   = [attribute = attributevalue]
+        */
         //Open the Application
         cy.visit('https://demo.nopcommerce.com/')
         //Check Title
@@ -14,7 +18,7 @@ describe('Locators in Cypress', () => {
 
         //Click on Search Button
         cy.get('#small-search-box-form > .button-1.search-box-button').should('be.enabled')
-        cy.get("[type='submit']").click()   //Dont forget to give Parenthesis beside a function
+        cy.get("[type='submit']").click();   //Dont forget to give Parenthesis beside a function
 
         //Click on Add to Cart Button
         cy.get(".product-box-add-to-cart-button").click()

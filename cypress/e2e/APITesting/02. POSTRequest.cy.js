@@ -2,36 +2,39 @@ describe('POST Request in Cypress', () => {
 
     it("Approach 1 : POST Request", ()=> {
         cy.request({
-                        method:"POST",
-                        url: "http://restapi.adequateshop.com/api/Tourist/",
-                        body: {
-                            "tourist_name": "Pooja3335",
-                            "tourist_email": "Pooja3335@gmail.com",
-                            "tourist_location": "USA",
-                        }
-                    })
-                    .its("statusText")
-                    .should('contain', "Created")
+                    method:"POST",
+                    url: "https://jsonplaceholder.typicode.com/posts/",
+                    body: {
+                        userId: "1",
+                        title: "This is my 1st POST on 12-May-2024",
+                        body: "This is my 1st BODY 12-May-2024"
+                    }
+                })
+                .its("statusText")
+                .should('contain', "Created")
     })
 
-    it("Approach 2 : POST Request", ()=> {
+    it.only("Approach 2 : POST Request", ()=> {
         const requestBody = {
-                                tourist_name: "Pooja403927",
-                                tourist_email: "jadhaoshilp403927@gmail.com",
-                                tourist_location: "USA"
+                                userId: "1",
+                                title: "This is my 1st POST on 12-May-2024",
+                                body: "This is my 1st BODY 12-May-2024"
                             }
+                            
         cy.request({
                         method:"POST",
-                        url: "http://restapi.adequateshop.com/api/Tourist/",
+                        url: "https://jsonplaceholder.typicode.com/posts/",
                         body: requestBody
                     }).then ( (response) => {
                         cy.log(response.status);
                         cy.log(response.statusText);
+                        cy.log(response.body.title);
+                        cy.log(response.body);
                         expect(response.status).to.eq(201)
                         expect(response.statusText).to.eq("Created")
-                        expect(response.body.tourist_name).to.eq("Pooja403927")
-                        expect(response.body.tourist_email).to.eq("jadhaoshilp403927@gmail.com")
-                        expect(response.body.tourist_location).to.eq("USA")
+                        expect(response.body.title).to.include("12-May-2024");
+                        // expect(response.body.tourist_email).to.eq("jadhaoshilp403927@gmail.com")
+                        // expect(response.body.tourist_location).to.eq("USA")
                     })
     })
 
@@ -56,7 +59,7 @@ describe('POST Request in Cypress', () => {
                     })
     })
 
-    it.only("Approach 4 : POST Request", ()=> {
+    it("Approach 4 : POST Request", ()=> {
         
         cy.fixture("APITesting-POST.json").then( (requestBody)=> {
             cy.request({

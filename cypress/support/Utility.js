@@ -5,6 +5,8 @@ export class Utility {
         //  npx cypress run --env ENV="qa" --browser "chrome" --headed --spec "cypress\e2e\30. SwitchConfigFiles&Env.cy.js"
         let envi = Cypress.env('ENV'); //Get the value of evnironment variable i.e ENV, 
         // you can specify any name here not only ENV
+
+        
         if (envi == 'production') //Check the value
             return "https://www.facebook.com"; //return desired url
         else if (envi == 'staging')

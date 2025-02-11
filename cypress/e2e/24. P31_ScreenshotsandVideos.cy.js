@@ -1,6 +1,6 @@
 describe('Capture Screenshots & videos in Cypress', () => {
     
-    it('Intentionally capture screenhsots', () => {
+    it.only('Intentionally capture screenhsots', () => {
         
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         cy.wait(2500)

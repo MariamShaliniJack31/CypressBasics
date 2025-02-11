@@ -29,13 +29,13 @@ describe('CheckBoxes in Cypress', function() {
         cy.get("input[type=Checkbox]").last().check() 
        
         
-        //This is NOT WORKING
-        // cy.get("input[type=Checkbox]").then ( (x) => {
-        //     let checkboxcount = x.length()
-        //     assert(checkboxcount).to.be(checkboxcount)
+        
+        cy.get("input[type=Checkbox]").then( ($x) => {
+            let checkboxcount = $x.length;
+            cy.log(checkboxcount);
             
 
-        // })
+        })
 
 
         //cy.title().should('contain', "Amazon.com. Spend less. Smile more.")

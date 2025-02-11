@@ -47,6 +47,7 @@ it('Explicit Assertions', () => {
         let actualName = x.text()
         // BDD Style - we use expect
         expect(actualName).not.equal(expectedName)
+        expect(actualName).to.be(expectedName);
 
         //TDD Style - we use assert
         assert.notEqual(actualName,expectedName)

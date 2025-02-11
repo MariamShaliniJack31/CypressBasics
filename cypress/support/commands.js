@@ -2,16 +2,16 @@
 /// <reference types='cypress-xpath' />
 
 import 'cypress-file-upload';
-import 'cypress-iframe'
+import 'cypress-iframe'       //This is Deprecated
 import '@4tw/cypress-drag-drop'
 import { verifyDownloadTasks } from 'cy-verify-downloads';  // Importing the verifyDownloadTasks object from its module
-
+const mammoth = require('mammoth');
 require('@4tw/cypress-drag-drop');
 require('cypress-downloadfile/lib/downloadFileCommand');
 require('ajv');
 require('cy-verify-downloads').addCustomCommand();
-const fs = require('fs-extra')
-const path = require('path')
+//const fs = require('fs-extra')
+//const path = require('path')
 
 export default function addCustomCommands() {
   // all the Cypress.Commands.add calls
@@ -30,6 +30,22 @@ import smartdiffdata from "../fixtures/smartdiffdata.json"
 const loginpage = new DataDios_LoginPage();
 const homepage = new DataDios_HomePage();
 const sourcepage = new DataDios_DataSourcePage();
+
+Cypress.Commands.add('docxtoHtml', (docxFilePathinCypress) => {
+  console.log(docxFilePathinCypress);
+  return new Promise((resolve, reject) => {
+    // Convert DOCX to HTML
+    mammoth.convertToHtml({ path: docxFilePathinCypress }).then((result) => {
+      // Resolve with the HTML content
+      console.log("PASS");
+      resolve(result.value);
+    }) .catch((error) => {
+      // Reject with the error
+      console.log("FAIL");
+      reject(error);
+    });
+  });
+})
 
 // Cypress.Commands.add('findFiles', (path, filename) => {
 //   // Defining the custom command 'findFiles'

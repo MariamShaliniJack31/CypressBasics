@@ -29,22 +29,71 @@ describe('Web Tables in Cypress', () => {
 
     it('Find specific Cell Value', () => {
         
-        cy.get(".table.table-bordered.table-hover>tbody>tr:nth-child(4)>td:nth-child(3)").should('have.text' , 'gorankrezic90@gmail.com');
+        cy.get(".table.table-bordered.table-hover>tbody>tr:nth-child(4)>td:nth-child(3)").should('have.text' , 'gorankreziccc90@gmail.com');
         cy.get(".table.table-bordered.table-hover>tbody>tr:nth-child(4)>td:nth-child(3)").should('not.have.text' , 'Shalini@gmail.com');
     })
 
     it('Read each value in Row & Column', () => {
-        
-        cy.get(".table.table-bordered.table-hover>tbody>tr").each( ($rowvalue, index, $rows) => {
+        var arr = [];
+        var conditionMet = false; // Initialize flag to track if the condition is met
+        cy.get(".table.table-bordered.table-hover > tbody > tr").each( ($rowvalue, index, $rows) => {
+            // If the condition is already met, exit the loop
+            cy.log(conditionMet);
+            if (conditionMet === true) {
+                return false; // Returning false breaks out of the .each() loop in Cypress
+            }
+            
             cy.wrap($rowvalue).within( ()=> {
                 cy.get("td").each( ($colvalue, index, $cols) =>{
-                    cy.log($colvalue.text())
+            
+                    //|| colvalue == "gorankreziccc90@gmail.com"
+                    let colvalue = $colvalue.text();
+                    if(colvalue == "as@gmail.xom" ){
+                        conditionMet = true; // Set the flag to true once the condition is met
+                        cy.log("********************")
+                        cy.log($cols[index-1].innerText);
+                        cy.log("********************")
+                        arr.push($cols[1].innerText);
+                        cy.log(arr.toString());
+                        return false; // Returning false breaks out of the .each() loop in Cypress
+                    }
                 })
             })
         })
+        cy.log("****************************(((((((((((((((((&&&&&&&&&&&&&&&&&&&&&&&&&")
+        cy.log(arr);
+        
     })
 
-    it('Pagination', () => {
+    it('Read each value in Row & Column Using find', () => {
+        var arr = [];
+        var conditionMet = 0; // Initialize flag to track if the condition is met
+        cy.get(".table.table-bordered.table-hover>tbody>tr").each( ($rowvalue, index, $rows) => {
+            // If the condition is already met, exit the loop
+            cy.log(conditionMet);
+            if (conditionMet == 2) {
+                return false; // Returning false breaks out of the .each() loop in Cypress
+            }
+            cy.wrap($rowvalue).find("td").each( ($colvalue, index, $cols) =>{
+                
+                let colvalue = $colvalue.text();
+                if(colvalue == "as@gmail.xom" || colvalue == "gorankreziccc90@gmail.com" ){
+                    conditionMet += 1; // Set the flag to true once the condition is met
+                    cy.log("********************")
+                    cy.log($cols[index-1].innerText);
+                    cy.log("********999999************")
+                    arr.push($cols[1].innerText);
+                    return false; // Returning false breaks out of the .each() loop in Cypress  
+                }
+            })
+            
+        })
+        cy.log("****************************(((((((((((((((((&&&&&&&&&&&&&&&&&&&&&&&&&")
+        cy.log(arr);
+        
+    })
+
+    it.only('Pagination', () => {
         
         cy.get(".col-sm-6.text-end").then( (x) =>{
             let strvalue = x.text();

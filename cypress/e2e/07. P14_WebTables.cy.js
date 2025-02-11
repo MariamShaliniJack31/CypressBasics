@@ -2,12 +2,55 @@
 
 describe('Web Tables in Cypress', () => {
     
-    it('Find a value anywhere in Table', () => {
+    it.only('Find a value anywhere in Table', () => {
         
         //Open the Application
         cy.visit('https://testautomationpractice.blogspot.com/')
         cy.get("table[name='BookTable']").contains('td', "Learn Selenium").should('be.visible')
         cy.get("table[name='BookTable']").contains("1000").should('be.visible')
+        
+        
+        cy.log("********************* II way ************************")
+        cy.get("table[name='BookTable']").each(($row, index, $rowlist) => {
+            cy.wrap($row).within( () =>{
+                cy.log("I AM IN ROW WITHIN");
+                cy.get("td").each( ($col, index, $collist) => {
+                    cy.log("I AM IN TD" + index);
+                    let txt = $col.text();
+                    if(txt.includes("Master In Selenium")) {
+                        cy.log(txt);
+                        return false;
+                    }
+                })
+            }) 
+        })
+        
+        // NOT WORKING
+        var found = false;
+        cy.log("******************** III WAY ******************")
+        cy.get("table[name='BookTable'] > tbody > tr").each(($row, index, $rowlist) => {
+            cy.wrap($row).each( ($col, indexx, $collist) => {
+                let txt = $col.text();
+                if(txt.includes("Master In Selenium")) {
+                    cy.log("*****************************" +txt);
+                    found = true;
+                    return false;
+                }
+                if (found == true) return false;
+            })
+            if (found == true) return false;
+            
+        })
+
+        cy.log("&&&&&&&&&&&&&&&&&&CHATGPT&&&&&&&&&&&&&&&&&&&&&")
+        cy.contains("table[name='BookTable'] > tbody > tr", "Master In Selenium").then(($row) => {
+            cy.log($row.text());
+            if ($row.length > 0) {
+                cy.log("Row with 'Master In Selenium' found.");
+            } else {
+                cy.log("Row with 'Master In Selenium' not found.");
+            }
+        });
     })
 
     it('Find a value in Particular Row & Column', () => {

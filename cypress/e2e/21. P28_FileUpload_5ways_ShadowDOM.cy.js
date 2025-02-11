@@ -71,13 +71,24 @@ describe('File Uploads in Cypress', () => {
     cy.visit("https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm");
     
     // Make sure to keep the file path present in Fixtures Folder
-    
-    //cy.get("#locator").shadow().find(".nb-btn").click()
+      //cy.get("#locator").shadow().find(".nb-btn").click()
     cy.get("input.smart-browse-input", {includeShadowDom:true}).attachFile("example.json").document();
     cy.wait(2000)
     cy.get(".smart-item-name" , {includeShadowDom:true}).contains("example.json");
     cy.get(".smart-item-name" , {includeShadowDom:true}).should('contain.text', "example.json");
     })
+
+    it.only('Shadow DOM 2 - THIS IS NOT WORKING', () => {
+      
+      cy.visit("https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm");
+      
+      // Make sure to keep the file path present in Fixtures Folder
+      cy.get(".smart-ui-component").shadow().find(".smart-browse-input").click();
+      //cy.get("input.smart-browse-input", {includeShadowDom:true}).attachFile("example.json").document();
+      cy.wait(2000)
+      cy.get(".smart-item-name" , {includeShadowDom:true}).contains("example.json");
+      cy.get(".smart-item-name" , {includeShadowDom:true}).should('contain.text', "example.json");
+      })
   
   it('File Download', function() {
       cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg').document()

@@ -3,7 +3,7 @@ export class OrangeHRMLP {
     txt_username = ':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input'
     txt_password = ':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input'
     btn_login = '.oxd-button'
-
+    
     enterUsername(username){
         cy.get(this.txt_username).clear().type(username)
     }

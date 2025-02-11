@@ -9,7 +9,7 @@ import {
 } from "../constants";
 
 class DataDios_LoginPage{
-
+        
     getURL(){
         return cy.visit(BASE_URL);
     }    
