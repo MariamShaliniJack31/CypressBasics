@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/MariamShaliniJack31/CypressBasics.git'
+                git branch: 'main', url: 'https://github.com/MariamShaliniJack31/CypressBasics.git'
             }
         }
 
