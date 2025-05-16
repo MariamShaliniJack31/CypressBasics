@@ -14,19 +14,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'  // Use `npm install` if not using lock files
+                bat 'npm ci'  // Use `npm install` if not using lock files
             }
         }
 
         stage('Run Cypress Sanity Tests') {
             steps {
-                sh 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
+                bat 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
             }
         }
 
         stage('Generate Mochawesome Report') {
             steps {
-                sh '''
+                bat '''
                     npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json
                     npx marge cypress/reports/merged-report.json --reportDir cypress/reports/html
                     '''
