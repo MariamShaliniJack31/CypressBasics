@@ -24,20 +24,33 @@ pipeline {
             }
         }
 
-        stage('Generate Mochawesome Report') {
+        // stage('Generate Mochawesome Report') {
+        //     steps {
+        //         bat """
+        //             echo Cleaning old merged report...
+        //             del /f /q cypress\\reports\\merged-report.json
+
+        //             echo Checking for Mochawesome JSON files...
+        //             dir cypress\\reports\\mochawesome_*.json
+
+        //             echo Merging reports...
+        //             npx mochawesome-merge cypress\\reports\\mochawesome_*.json > cypress\\reports\\merged-report.json
+
+        //             echo Generating HTML report...
+        //             npx marge cypress\\reports\\merged-report.json --reportDir cypress\\reports\\html
+        //         """
+        //     }
+        // }
+
+        stage('Check Mochawesome Report') {
             steps {
                 bat """
-                    echo Cleaning old merged report...
-                    del /f /q cypress\\reports\\merged-report.json
-
-                    echo Checking for Mochawesome JSON files...
-                    dir cypress\\reports\\mochawesome_*.json
-
-                    echo Merging reports...
-                    npx mochawesome-merge cypress\\reports\\mochawesome_*.json > cypress\\reports\\merged-report.json
-
-                    echo Generating HTML report...
-                    npx marge cypress\\reports\\merged-report.json --reportDir cypress\\reports\\html
+                    if exist cypress\\reports\\html\\index.html (
+                        echo Mochawesome report found.
+                    ) else (
+                        echo ERROR: Mochawesome report not found!
+                        exit /b 1
+                    )
                 """
             }
         }
