@@ -27,8 +27,12 @@ pipeline {
         stage('Generate Mochawesome Report') {
             steps {
                 bat """
-                    npx mochawesome-merge cypress\\reports\\*.json > cypress\\reports\\merged-report.json
-                    npx marge cypress\\reports\\merged-report.json --reportDir cypress\\reports\\html
+                    IF EXIST cypress\\reports\\*.json (
+                        npx mochawesome-merge cypress\\reports\\*.json > cypress\\reports\\merged-report.json
+                        npx marge cypress\\reports\\merged-report.json --reportDir cypress\\reports\\html
+                    ) ELSE (
+                        echo No JSON report files found to merge.
+                    )
                 """
             }
         }
