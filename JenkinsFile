@@ -38,8 +38,15 @@ pipeline {
                 archiveArtifacts artifacts: 'cypress/reports/html/**/*', allowEmptyArchive: true
             }
         }
+
+        stage("Bye"){
+            steps{
+                echo "BYE"
+            }
+        }
     }
 
+    
     post {
         always {
             echo 'Pipeline finished.'
