@@ -4,6 +4,9 @@ const { verifyDownloadTasks, isFileExist, findFiles} = require('cy-verify-downlo
 const fs = require('fs');
 const path = require('path');
 
+const { merge } = require('mochawesome-merge');
+const generateReport = require('mochawesome-report-generator');
+
 
 //import { defineConfig } from 'cypress'      //This is NOT Working.
 // load the environment variables from the local .env file
@@ -39,6 +42,7 @@ module.exports =  defineConfig({
     baseUrl:     "https://amazon.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      
       on("task", { downloadFile , verifyDownloadTasks, isFileExist, 
         
         findFiles (FolderPath, fileName ){

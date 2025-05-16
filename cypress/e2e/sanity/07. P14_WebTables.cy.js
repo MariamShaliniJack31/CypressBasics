@@ -51,7 +51,6 @@ describe('Web Tables in Cypress', () => {
                 cy.log("Row with 'Master In Selenium' not found.");
             }
         });
-    cy.pause();
     })
 
     it('Find a value in Particular Row & Column', () => {

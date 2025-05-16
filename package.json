@@ -16,9 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "Dependencies": {
-    "cypress-file-upload": "^5.0.8"
-  },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
     "ajv": "^8.12.0",
