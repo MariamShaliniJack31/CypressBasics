@@ -26,7 +26,6 @@ it('Implicit Assertions', () => {
     //Chained Assertions
     cy.xpath("//span[normalize-space()='Recruitment']").should('be.visible').and('exist').and('have.text','Recruitment' )
     orangehrmhp.clickLogout()
-
 })
 
 it('Explicit Assertions', () => {
@@ -51,9 +50,6 @@ it('Explicit Assertions', () => {
 
         //TDD Style - we use assert
         assert.notEqual(actualName,expectedName)
-        
     })
-    
     orangehrmhp.clickLogout()
-
 })

@@ -1,14 +1,14 @@
 describe('Alerts in Cypress', () => {
     
-    it.only('Alert Text can use Cypress also', () => {
+    it('Alert Text can use Cypress also', () => {
         
         //Open the Application
         cy.visit('https://mail.rediff.com/cgi-bin/login.cgi');
-        cy.get('input[type=submit]').click()
+        cy.get('button[type=submit]').click()
         //Alert Handling Cypress.on('window:alert', (str) =>
-        cy.on('window:alert', (str) =>
-            expect(str).to.equal("Please enter a valid user name")
-        )
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal("Please enter a valid user name");
+        })
     })
 
     it('Confirmation Alert Text : OK Button', () => {

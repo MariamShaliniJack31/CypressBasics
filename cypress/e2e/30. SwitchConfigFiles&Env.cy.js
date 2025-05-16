@@ -6,7 +6,7 @@ const url = new Utility().getBaseUrl();
 
 describe('Switch Config Files & Envs', () => {
 
-  //   npx cypress run --config baseUrl="https://www.staging-website.com/" --spec "cypress\e2e\30. SwitchConfigFiles&Env.cy.js" -b "chrome" --headed --env ENV=qa
+  //   npx cypress run --config baseUrl="https://www.wikipedia.org/" --spec "cypress\e2e\30. SwitchConfigFiles&Env.cy.js" -b "chrome" --headed --env ENVIRON=qa
   it('Get Env from Config File & Run from Cmd Line', () => {
 
     cy.log(Cypress.env("baseUrl"))                //This is coming from cypress.env.json

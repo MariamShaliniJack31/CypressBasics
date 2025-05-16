@@ -7,9 +7,10 @@ describe('Locators in Cypress', () => {
         ID          = #
         Class       = .
         Attribute   = [attribute = attributevalue]
+        Tag         = Is Optional(tag#ID, tag.class, tag[attribute=value])  
         */
         //Open the Application
-        cy.visit('https://demo.nopcommerce.com/')
+        cy.visit("https://demo.nopcommerce.com");
         //Check Title
         cy.title().should('eq', 'nopCommerce demo store')
 
@@ -30,14 +31,17 @@ describe('Locators in Cypress', () => {
         cy.wait(5000)
 
         //Click on Shopping Cart
+        // > means Select elements that are direct children of the previous element
         cy.get("#topcartlink > a > span.cart-label").click()
         cy.wait(5000)
         //Check Unit Price
         cy.get(".product-unit-price").contains("$1,800.00")
 
     })
-  
-  
-    
-  
+/*cy.get("#topcartlink a span.cart-label")
+This would match any span.cart-label that is a descendant (not necessarily a direct child) 
+of any a element under #topcartlink.  
+*/
 })
+
+////npx cypress run --spec "cypress\e2e\02. P9_Locators.cy.js" --headed -b chrome

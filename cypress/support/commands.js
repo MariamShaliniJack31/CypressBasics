@@ -180,7 +180,7 @@ cy.xpath("(//div[@class='p-card-body'])[2]").then((e)=>{
 //      I created the below Custom Commands
 Cypress.Commands.add('logintonopCommerce', (email, password) => { 
     
-    cy.visit('https://admin-demo.nopcommerce.com/login?')
+    cy.visit('https://admin-demo.nopcommerce.com/login?');
     cy.get('input[name=Email]').clear().type(email)
     cy.get('input[name=Password]').clear().type(password)
     cy.get('button[type=submit]').click()

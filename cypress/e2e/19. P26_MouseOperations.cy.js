@@ -48,7 +48,7 @@ describe('Mouse Operations in Cypress', () => {
         cy.xpath("//div[@id='box3']").drag(".dragableBoxRight#box103", {force:true});
     })
 
-    it.only('Scrolling', () => {
+    it('Scrolling', () => {
         
         cy.visit("https://www.countries-ofthe-world.com/flags-of-the-world.html");
         

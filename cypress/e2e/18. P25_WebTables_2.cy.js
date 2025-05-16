@@ -5,7 +5,7 @@ describe('Web Tables in Cypress', () => {
     beforeEach("Login to application", () =>{
         
         //Open the Application
-        cy.visit('https://demo.opencart.com/admin/')
+        cy.visit('http://demo.opencart.com/admin/')
         
         //Login
         cy.get("#input-username").clear().type("demo")
@@ -22,15 +22,15 @@ describe('Web Tables in Cypress', () => {
 
     it('Find No of Rows and Columns', () => {
         
-        cy.get(".table.table-bordered.table-hover>tbody>tr").should('have.length' , '10');
-        cy.get(".table.table-bordered.table-hover>thead>tr>td").should('have.length' , '7');
-
+        cy.get(".table.table-bordered.table-hover > tbody > tr").should('have.length' , '10');
+        cy.get(".table.table-bordered.table-hover > thead > tr > td").should('have.length' , '7');
+        cy.pause();
     })
 
     it('Find specific Cell Value', () => {
         
-        cy.get(".table.table-bordered.table-hover>tbody>tr:nth-child(4)>td:nth-child(3)").should('have.text' , 'gorankreziccc90@gmail.com');
-        cy.get(".table.table-bordered.table-hover>tbody>tr:nth-child(4)>td:nth-child(3)").should('not.have.text' , 'Shalini@gmail.com');
+        cy.get(".table.table-bordered.table-hover > tbody > tr:nth-child(4) > td:nth-child(3)").should('have.text' , 'gorankreziccc90@gmail.com');
+        cy.get(".table.table-bordered.table-hover > tbody > tr:nth-child(4) > td:nth-child(3)").should('not.have.text' , 'Shalini@gmail.com');
     })
 
     it('Read each value in Row & Column', () => {
@@ -93,7 +93,7 @@ describe('Web Tables in Cypress', () => {
         
     })
 
-    it.only('Pagination', () => {
+    it('Pagination', () => {
         
         cy.get(".col-sm-6.text-end").then( (x) =>{
             let strvalue = x.text();

@@ -33,10 +33,12 @@ describe("Stubbing & Spying", ()=>{
         })
     })
 
-    it.only("Spying and Response Stubbing with Static Response", ()=>{
+    it("Spying and Response Stubbing with Static Response", ()=>{
         //  You can even stub and mock a request's response
         //  By passing in a StaticResponse as the last argument, you can statically define (stub) a response for matched requests. See StaticResponse object for the list of properties.
-        //   cy.intercept(method, url, staticResponse)
+        //  cy.intercept(method, url, staticResponse)
+
+        // Inline Stubbed Response, If you want to stub the response with a custom body:
         cy.intercept("GET", "/posts", {totalpost: "59*%%****&&&&99", name: "Naveen"}).as("postslink");
         
         cy.visit("https://jsonplaceholder.typicode.com")
@@ -44,10 +46,16 @@ describe("Stubbing & Spying", ()=>{
         cy.wait("@postslink").its("response.statusCode").should("equal", 200);
     })
 
-    it("Spying and Response Stubbing with Dynamic Fixture", ()=>{
+    it.only("Spying and Response Stubbing with Dynamic Fixture", ()=>{
 
         //Dynamic Response Stubbing takes more priority than static == we are getting Fixture Data in Response
-        cy.intercept("GET", "/posts", {fixture: 'example.json', totalpost: "59**********&&&&&&&&&99", name: "Naveen", }).as("postslink");
+        cy.intercept("GET", "/posts", {
+            // body: {
+            //         totalpost: "59**********&&&&&&&&&99",
+            //         name: "Naveen"
+            // },
+            fixture: 'example.json'
+        }).as("postslink");
         
         cy.visit("https://jsonplaceholder.typicode.com")
         cy.get("table:nth-of-type(1) a[href='/posts']").click({force:true});

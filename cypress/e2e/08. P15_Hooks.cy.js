@@ -19,7 +19,8 @@ describe('Hooks in Cypress', () => {
     
       after(() => {
         // runs once after all tests in the block
-        cy.log("*********AFTER - Runs once After all Tests*******")
+        cy.log("*********AFTER - Runs once After all Tests*******");
+        cy.pause();
       })
 
     it('Find a value anywhere in Table', () => {
@@ -28,12 +29,14 @@ describe('Hooks in Cypress', () => {
         cy.visit('https://testautomationpractice.blogspot.com/')
         cy.get("table[name='BookTable']").contains('td', "Learn Selenium").should('be.visible')
         cy.get("table[name='BookTable']").contains("1000").should('be.visible')
+        cy.log("I am TC 1");
     })
 
     it('Find a value in Particular Row & Column', () => {
         cy.visit('https://testautomationpractice.blogspot.com/')
         cy.get("table[name='BookTable'] > tbody:nth-child(1) tr:nth-child(3) > td:nth-child(3)").contains("Java").should('be.visible')
         cy.get("table[name='BookTable'] > tbody:nth-child(1) tr:nth-child(3) > td:nth-child(4)").contains("500").should('be.visible')
+        cy.log("I am TC 2");
     })
 
     it('Looping Find a value in Particular Row & Column', () => {
@@ -51,5 +54,6 @@ describe('Hooks in Cypress', () => {
                 })
             }
         })
+    cy.log("I am TC 3");
     })
 })

@@ -1,6 +1,6 @@
 it('File Upload', function() {
     cy.visit('https://trytestingthis.netlify.app/')
-    cy.get('#myfile').attachFile('example.json').document()
+    cy.get('#myfile').attachFile('example.json').document();
 })
 
 it('File Upload Using selectFile method()' , function() {
@@ -10,7 +10,7 @@ it('File Upload Using selectFile method()' , function() {
 })
 
 it.only('File Download', function() {
-    cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','cypress/downloads','example.jpg').document()
+    cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','cypress/downloads','example.jpg').document();
     //cy.findFiles("cypress/downloads",'example.jpg');
     //cy.verifyDownload("example.jpg")
 

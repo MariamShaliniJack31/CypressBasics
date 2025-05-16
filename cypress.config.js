@@ -3,7 +3,7 @@ const { downloadFile } = require("cypress-downloadfile/lib/addPlugin");
 const { verifyDownloadTasks, isFileExist, findFiles} = require('cy-verify-downloads');
 const fs = require('fs');
 const path = require('path');
-   
+
 
 //import { defineConfig } from 'cypress'      //This is NOT Working.
 // load the environment variables from the local .env file
@@ -56,7 +56,6 @@ module.exports =  defineConfig({
           return files;
         }
       });                   //Occurs in conjunction with the cy.task command
-
       
       require('cypress-mochawesome-reporter/plugin')(on);
       //config.defaultCommandTimeout = 10000          // This line takes priority than 59
@@ -78,7 +77,7 @@ module.exports =  defineConfig({
     reporter: 'cypress-mochawesome-reporter',
       reporterOptions: {
       charts: true,
-      reportPageTitle: 'Cypress Automation Testing',
+      reportPageTitle: 'Cypress Automation Testing 16-May-2025',  //See Browser Page Title
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,

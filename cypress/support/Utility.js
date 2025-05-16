@@ -2,8 +2,8 @@ export class Utility {
     getBaseUrl() {
         
         //  npm run cy:run:stg
-        //  npx cypress run --env ENV="qa" --browser "chrome" --headed --spec "cypress\e2e\30. SwitchConfigFiles&Env.cy.js"
-        let envi = Cypress.env('ENV'); //Get the value of evnironment variable i.e ENV, 
+        //  npx cypress run --env ENVIRON="qa" --browser "chrome" --headed --spec "cypress\e2e\30. SwitchConfigFiles&Env.cy.js"
+        let envi = Cypress.env('ENVIRON'); //Get the value of evnironment variable i.e ENV, 
         // you can specify any name here not only ENV
 
         
@@ -12,6 +12,6 @@ export class Utility {
         else if (envi == 'staging')
             return "https://staging-website.com";
         else if (envi == 'qa')
-            return "https://qa-website.com";
+            return "https://chatgpt.com/";
     }
 }

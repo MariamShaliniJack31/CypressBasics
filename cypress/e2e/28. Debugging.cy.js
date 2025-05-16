@@ -6,7 +6,7 @@ describe("Debugger", ()=>{
         
         cy.get('#APjFqb').then( ($selectedElement) => {
             // Debugger is hit after the cy.visit and cy.get commands have completed
-            debugger
+            debugger                                //This is NOT working
             cy.get('#APjFqb').type("Automation Cypress")
         })
 

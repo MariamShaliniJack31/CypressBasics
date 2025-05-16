@@ -12,7 +12,6 @@ describe('Frames in Cypress', () => {
             cy.log ($iframe.contents().find('body#tinymce > p').contents());
             $iframe.find('#tinymce').clear;
         });
-        
     })
     
     it('iFrames Using contentDocument', () => {
@@ -28,6 +27,7 @@ describe('Frames in Cypress', () => {
         cy.xpath("//button[@title='Bold']").click()
         cy.wait(2500)
         cy.get("button[title='Italic']").click()
+        cy.pause();
      })
 
     it('iFrames in Custom Commands', () => {
@@ -44,7 +44,7 @@ describe('Frames in Cypress', () => {
     })
 
 
-    it.only('Cypress-iFrame Plugin', () => {
+    it('Cypress-iFrame Plugin', () => {
         
         //Open the Application
         cy.visit("https://the-internet.herokuapp.com/iframe")

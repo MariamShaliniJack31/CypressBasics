@@ -1,4 +1,3 @@
-
 /// <reference types="cypress" />
 
 describe('Custom Commands in Cypress', () => {

@@ -14,7 +14,6 @@ describe('DropDowns in Cypress', function() {
         cy.get("select#Skills").select("CSS")
     })
 
-    
     it('DropDowns with Select Tag', () => {
         
         //Open the Application

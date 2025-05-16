@@ -1,11 +1,13 @@
 describe('File Uploads in Cypress', () => {
+/*Yes, Cypress now has a built-in method called .selectFile() that you can use instead of 
+attachFile() from the cypress-file-upload plugin.*/
 
   it('Single File Upload', function() {
     cy.visit("https://the-internet.herokuapp.com/upload");
 
     //This element Choose File is of type=file, so we can use attachFile method for uploading 
     //And also select the file present in fixtures folder
-    cy.get("#file-upload").attachFile("example.json").document();
+    cy.get("#file-upload").attachFile("example.json");
       
     //A fixture file could not be found at any of the following paths: > cypress\fixtures\D:\Ricky\Sophomore\1K679765710_Doc.pdf
     //cy.get("#file-upload").attachFile("D:/Ricky/Sophomore/1K679765710_Doc.pdf").document();
@@ -21,7 +23,7 @@ describe('File Uploads in Cypress', () => {
 
     //This element Choose File is of type=file, so we can use attachFile method for uploading 
     //And also select the file present in fixtures folder
-    cy.get("#file-upload").attachFile({filePath:"example.json" , fileName:"fixturesDataFile.json"}).document();
+    cy.get("#file-upload").attachFile({filePath:"example.json" , fileName:"fixturesDataFile.json"});
       
     cy.get("#file-submit").click();
     cy.wait(2000);
@@ -34,7 +36,9 @@ describe('File Uploads in Cypress', () => {
     cy.visit("https://the-internet.herokuapp.com/upload");
     
     // Make sure to keep the file path present in Fixtures Folder
-    cy.get("#drag-drop-upload").attachFile('example.json', { subjectType: 'drag-n-drop' });
+    //type="file" Thats why we used selectFile method
+    //cy.get('#myfile').selectFile('cypress/fixtures/EXAMPLE2.json', { force: true }, { action: "drag-drop" });
+    cy.get("#drag-drop-upload").attachFile('example.json', { subjectType: 'drag-n-drop' , force: true});
     cy.wait(2000)
     cy.get("div[class='dz-preview dz-file-preview dz-processing dz-success dz-complete'] div[class='dz-details'] span").should('have.text', "example.json")
 
@@ -71,8 +75,11 @@ describe('File Uploads in Cypress', () => {
     cy.visit("https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm");
     
     // Make sure to keep the file path present in Fixtures Folder
-      //cy.get("#locator").shadow().find(".nb-btn").click()
-    cy.get("input.smart-browse-input", {includeShadowDom:true}).attachFile("example.json").document();
+    //cy.get("#locator").shadow().find(".nb-btn").click()
+    //cy.get('your-shadow-host-selector').shadow().find('input.smart-browse-input')
+    //.attachFile('example.json');
+
+    cy.get("input.smart-browse-input", {includeShadowDom:true}).attachFile("example.json");
     cy.wait(2000)
     cy.get(".smart-item-name" , {includeShadowDom:true}).contains("example.json");
     cy.get(".smart-item-name" , {includeShadowDom:true}).should('contain.text', "example.json");
@@ -91,7 +98,7 @@ describe('File Uploads in Cypress', () => {
       })
   
   it('File Download', function() {
-      cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg').document()
+      cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg');
 
   })
 })

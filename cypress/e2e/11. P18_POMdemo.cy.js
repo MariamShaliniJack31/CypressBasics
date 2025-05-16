@@ -11,13 +11,12 @@ var orangehrmhp = new OrangeHRMHP()
 it('POM Demo', () => {
     
     cy.log(Cypress.env('ORANGEHRM_URL'))
-    cy.visit(Cypress.env('ORANGEHRM_URL'))
+    cy.visit(Cypress.env('ORANGEHRM_URL'))                          //cypress.config.js
        
-    orangehrmlp.enterUsername( Cypress.env('ohrm_username') )
-    orangehrmlp.enterPassword(Cypress.env('ohrm_password'))
+    orangehrmlp.enterUsername( Cypress.env('ohrm_username') )       //cypress.env.json
+    orangehrmlp.enterPassword(Cypress.env('ohrm_password'))         //cypress.env.json
     orangehrmlp.clickLoginButton()
 
-    orangehrmhp.verifyLabel(Cypress.env('ohrm_label'))
+    orangehrmhp.verifyLabel(Cypress.env('ohrm_label'))              //cypress.env.json
     orangehrmhp.clickLogout()
-
 })
