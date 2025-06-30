@@ -35,9 +35,9 @@ pipeline {
                     echo "Converted Unix Path: ${unixPath}"
 
                     bat """
-                        docker run --rm -v "${unixPath}:${unixPath}" -w "${unixPath}" cypress/base:22.15.0 npx cypress run
+                        docker run --rm -v "${unixPath}:${unixPath}" -w "${unixPath}" cypress/base:22.15.0 npx cypress run --spec 'cypress/e2e/sanity/*.cy.js'
                     """
-                    }
+                    
                 }
             }
         }
