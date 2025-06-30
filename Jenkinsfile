@@ -15,19 +15,28 @@ pipeline {
         stage('Run Cypress in Docker') {
             steps {
                 script {
-                    def dockerImage = 'cypress/base:22.15.0'
+                    // def dockerImage = 'cypress/base:22.15.0'
 
-                    // // Convert Windows path to Unix-style path
-                    // def workspacePath = pwd().replace('C:\\', '/c/').replaceAll('\\\\', '/')
+                    // // // Convert Windows path to Unix-style path
+                    // // def workspacePath = pwd().replace('C:\\', '/c/').replaceAll('\\\\', '/')
 
+                    // def windowsPath = pwd()
+                    // echo "Windows Path: ${windowsPath}"
+
+                    // def unixPath = windowsPath.replace('C:\\', '/c/').replaceAll('\\\\', '/')
+                    // echo "Converted Unix Path: ${unixPath}"
+
+                    // docker.image(dockerImage).inside("-v ${unixPath}:${unixPath} -w ${unixPath}") {
+                    //     bat 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
                     def windowsPath = pwd()
                     echo "Windows Path: ${windowsPath}"
 
                     def unixPath = windowsPath.replace('C:\\', '/c/').replaceAll('\\\\', '/')
                     echo "Converted Unix Path: ${unixPath}"
 
-                    docker.image(dockerImage).inside("-v ${unixPath}:${unixPath} -w ${unixPath}") {
-                        bat 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
+                    bat """
+                        docker run --rm -v "${unixPath}:${unixPath}" -w "${unixPath}" cypress/base:22.15.0 npx cypress run
+                    """
                     }
                 }
             }
