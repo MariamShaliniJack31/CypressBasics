@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker  {
             image 'cypress/base:22.15.0'
-            args '-u root'
+            args "-v ${env.WORKSPACE}:/e2e -w /e2e"
         }
     }
 
