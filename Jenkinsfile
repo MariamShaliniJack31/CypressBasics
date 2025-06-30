@@ -25,8 +25,8 @@ pipeline {
 
                     def unixPath = windowsPath.replace('C:\\', '/c/').replaceAll('\\\\', '/')
                     echo "Converted Unix Path: ${unixPath}"
-                    
-                    docker.image(dockerImage).inside("-v ${workspacePath}:${workspacePath} -w ${workspacePath}") {
+
+                    docker.image(dockerImage).inside("-v ${unixPath}:${unixPath} -w ${unixPath}") {
                         bat 'npx cypress run'
                     }
                 }
