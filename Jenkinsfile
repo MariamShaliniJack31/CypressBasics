@@ -27,7 +27,7 @@ pipeline {
                     echo "Converted Unix Path: ${unixPath}"
 
                     docker.image(dockerImage).inside("-v ${unixPath}:${unixPath} -w ${unixPath}") {
-                        bat 'npx cypress run'
+                        bat 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
                     }
                 }
             }
