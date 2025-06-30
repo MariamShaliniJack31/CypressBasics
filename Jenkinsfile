@@ -1,85 +1,36 @@
-pipeline {
-    agent {
-        docker  {
-            image 'cypress/base:22.15.0'
-            args "-v ${env.WORKSPACE}:/e2e -w /e2e"
-        }
+node {
+    stage('Checkout Code') {
+        git branch: 'main', url: 'https://github.com/MariamShaliniJack31/CypressBasics.git'
     }
 
-    environment {
-        CI = 'true'
-    }
-
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/MariamShaliniJack31/CypressBasics.git'
+    stage('Run Cypress in Docker') {
+        docker.image('cypress/base:22.15.0').inside {
+            stage('Install Dependencies') {
+                sh 'npm ci' // Linux shell inside container
             }
-        }
 
-        stage('Install Dependencies') {
-            steps {
-                bat 'npm ci'  // Use `npm install` if not using lock files
+            stage('Run Cypress Sanity Tests') {
+                sh 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
             }
-        }
 
-        stage('Run Cypress Sanity Tests') {
-            steps {
-                bat 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
+            stage('Check Mochawesome Report') {
+                sh '''
+                    if [ -f cypress/reports/html/index.html ]; then
+                        echo "Mochawesome report found."
+                    else
+                        echo "ERROR: Mochawesome report not found!"
+                        exit 1
+                    fi
+                '''
             }
-        }
 
-        // stage('Generate Mochawesome Report') {
-        //     steps {
-        //         bat """
-        //             echo Cleaning old merged report...
-        //             del /f /q cypress\\reports\\merged-report.json
-
-        //             echo Checking for Mochawesome JSON files...
-        //             dir cypress\\reports\\mochawesome_*.json
-
-        //             echo Merging reports...
-        //             npx mochawesome-merge cypress\\reports\\mochawesome_*.json > cypress\\reports\\merged-report.json
-
-        //             echo Generating HTML report...
-        //             npx marge cypress\\reports\\merged-report.json --reportDir cypress\\reports\\html
-        //         """
-        //     }
-        // }
-
-        stage('Check Mochawesome Report') {
-            steps {
-                bat """
-                    if exist cypress\\reports\\html\\index.html (
-                        echo Mochawesome report found.
-                    ) else (
-                        echo ERROR: Mochawesome report not found!
-                        exit /b 1
-                    )
-                """
-            }
-        }
-
-        stage('Archive Test Report') {
-            steps {
+            stage('Archive Report') {
                 archiveArtifacts artifacts: 'cypress/reports/html/**/*', allowEmptyArchive: true
             }
         }
-
-        stage("Bye"){
-            steps{
-                echo "BYE"
-            }
-        }
     }
 
-    
-    post {
-        always {
-            echo 'Pipeline finished.'
-        }
-        failure {
-            echo 'Tests failed!'
-        }
+    stage('Bye') {
+        echo "BYE"
     }
 }
