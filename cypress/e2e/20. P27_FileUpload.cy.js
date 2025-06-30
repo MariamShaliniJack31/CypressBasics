@@ -6,7 +6,9 @@ it('File Upload', function() {
 it('File Upload Using selectFile method()' , function() {
     cy.visit('https://trytestingthis.netlify.app/')
     //type="file" Thats why we used selectFile method
-    cy.get('#myfile').selectFile('cypress/fixtures/EXAMPLE2.json', { force: true }, { action: "drag-drop" });
+    
+    cy.get('#myfile').selectFile('cypress/fixtures/EXAMPLE2.json', {   action: 'drag-drop', force: true});
+
 })
 
 it.only('File Download', function() {

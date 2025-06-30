@@ -12,7 +12,6 @@ describe("Practising on 19th Nov and 22nd Jan 2025", () => {
 })
 
 //npx cypress run --spec "cypress\e2e\01. Google.cy.js" --headed -b chrome
-
 //npx cypress run --spec "cypress\e2e\01. Google.cy.js" --headed -b chrome --env CYPRESS_PG="IAMFROMCLI"
 
 //On Windows (using PowerShell) to CypressBasics Folder:

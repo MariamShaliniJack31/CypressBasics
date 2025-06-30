@@ -1,10 +1,13 @@
 /// <reference types="cypress" />
 
-//const { should } = require("chai")
-
 import { OrangeHRMLP } from "./Pages/OrangeHRM_LoginPage"
 import { OrangeHRMHP } from "./Pages/OrangeHRM_HomePage"
 
+/*
+./          means Siblings (P18_POMdemo.cy.js) Siblings
+../         Parent i.e e2e and its siblings --- all under cypress
+../../      cypress, package.json, cypress.config.js, .circleci, .vscode, node_modules
+*/
 var orangehrmlp = new OrangeHRMLP()
 var orangehrmhp = new OrangeHRMHP()
 
@@ -18,5 +21,7 @@ it('POM Demo', () => {
     orangehrmlp.clickLoginButton()
 
     orangehrmhp.verifyLabel(Cypress.env('ohrm_label'))              //cypress.env.json
-    orangehrmhp.clickLogout()
+    orangehrmhp.clickLogout();
+
+//    expect(actualValue).to.equal(expectedValue);
 })

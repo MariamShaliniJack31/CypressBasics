@@ -11,6 +11,7 @@ describe('Read Data from Fixtures files in Cypress', () => {
             cy.log(data.email)
             cy.log(data.body)
             cy.log(data.arr[0].Expected);
+            cy.log(data.arr[1].Expected);
 
             cy.log("This.d.name :  " +this.name)        //undefined
             cy.log(this.data.email)
@@ -29,10 +30,10 @@ describe('Read Data from Fixtures files in Cypress', () => {
             expect(data).contains("2023")
             expect(data).to.contain("2023");
             cy.log(data)
-        })  
+        })
     })
 
-    it.only('Write content File from Folder different than Fixtures', function(){
+    it('Write content File from Folder different than Fixtures', function(){
         cy.writeFile('./cypress/ReadandWriteFile.txt', '\nI am appending', {flag:'a'})
         cy.readFile('./cypress/ReadandWriteFile.txt').then((data) => {
             cy.log(data);

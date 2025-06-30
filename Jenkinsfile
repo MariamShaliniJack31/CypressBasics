@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'cypress/base:22.15.0'
+        }
+    }
 
     environment {
         CI = 'true'

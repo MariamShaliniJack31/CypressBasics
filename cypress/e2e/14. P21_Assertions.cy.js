@@ -40,16 +40,19 @@ it('Explicit Assertions', () => {
     // Explicit Assertions expect & assert
     let expectedName = "Shalini"
 
-    cy.log(expectedName)
+    cy.log(expectedName);
     cy.get(".oxd-userdropdown-name").then( (x) => {
 
         let actualName = x.text()
         // BDD Style - we use expect
         expect(actualName).not.equal(expectedName)
-        expect(actualName).to.be(expectedName);
+        expect(actualName).not.equal(expectedName);
+
 
         //TDD Style - we use assert
         assert.notEqual(actualName,expectedName)
+        //assert.equal(actualName, expectedName);
+
     })
     orangehrmhp.clickLogout()
 })

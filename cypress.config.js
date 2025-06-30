@@ -79,7 +79,7 @@ module.exports =  defineConfig({
 
     //npm i --save-dev cypress-mochawesome-reporter
     reporter: 'cypress-mochawesome-reporter',
-      reporterOptions: {
+    reporterOptions: {
       charts: true,
       reportPageTitle: 'Cypress Automation Testing 16-May-2025',  //See Browser Page Title
       embeddedScreenshots: true,
@@ -98,13 +98,14 @@ module.exports =  defineConfig({
     requestTimeout: 5 * 60 * 1000,
     responseTimeout: 5 * 60 * 1000,
     downloadsFolder : "cypress/downloads",
+    //supportFile: "cypress/support/index.js",
   },
   
   component: {
-    devServer: {
-      framework: "angular",
-      bundler: "webpack",
-    },
+    // devServer: {
+    //   framework: "angular",
+    //   bundler: "webpack",
+    // },
     specPattern: "**/*.cy.ts",
   },
 });

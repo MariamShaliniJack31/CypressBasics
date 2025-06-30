@@ -14,7 +14,7 @@ it('Google Search', {defaultCommandTimeout: 5000}, () => {
 
     cy.intercept('POST', '/log?format=json&hasfast=true&authuser=0', (req) => {
         req.headers['Content-Type:'] = 'text/plain; charset=UTF-8'
-    }).as("GoogleSearchScreen2");           //This is Response Headers
+    }).as("GoogleSearchScreen2");                           //This is Response Headers
 
     cy.visit('https://google.com');
     

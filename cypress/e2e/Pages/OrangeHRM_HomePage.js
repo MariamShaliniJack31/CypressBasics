@@ -8,8 +8,9 @@ export class OrangeHRMHP {
 
         cy.get(this.lbl_Recruitment).contains(lblname)
         cy.get(this.lbl_Recruitment).should('contain', lblname)
-    
+   
     }
+
     clickLogout(){
         cy.get(this.img_arrow).click()
         cy.wait(1000)

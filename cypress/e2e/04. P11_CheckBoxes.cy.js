@@ -33,8 +33,6 @@ describe('CheckBoxes in Cypress', function() {
         cy.get("input[type=Checkbox]").then( ($x) => {
             let checkboxcount = $x.length;
             cy.log(checkboxcount);
-            
-
         })
 
 

@@ -18,9 +18,14 @@ describe('Web Tables in Cypress', () => {
                     cy.log("I AM IN TD" + index);
                     let txt = $col.text();
                     if(txt.includes("Master In Selenium")) {
-                        cy.log(txt);
+                        cy.log("USING INCLUDES : "+txt);
                         return false;
                     }
+                    //The below code is also Working
+                    // if(txt == "Master In Selenium") {
+                    //     cy.log("USING ==  : "+txt);
+                    //     return false;
+                    // }
                 })
             }) 
         })

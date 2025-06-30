@@ -8,7 +8,8 @@ describe('Radio Buttons in Cypress', () => {
         cy.visit('https://www.mercurytravels.co.in/flights')
         //Check Title
         cy.wait(2000)
-        cy.title().should('contain', "Flight Ticket Online at Mercury Travels")
+        cy.title().should('contain', "Flight Ticket Online at Mercury Travels");
+        cy.url().should("equal", "https://www.mercurytravels.co.in/flights");
 
         //Click on Search Button
         cy.get("input[type='radio'][value='R']").should('be.visible')
