@@ -1,36 +1,30 @@
-node {
-    stage('Checkout Code') {
-        git branch: 'main', url: 'https://github.com/MariamShaliniJack31/CypressBasics.git'
+pipeline {
+    agent any
+
+    environment {
+        CI = 'true'
     }
 
-    stage('Run Cypress in Docker') {
-        docker.image('cypress/base:22.15.0').inside {
-            stage('Install Dependencies') {
-                sh 'npm ci' // Linux shell inside container
-            }
-
-            stage('Run Cypress Sanity Tests') {
-                sh 'npx cypress run --spec "cypress/e2e/sanity/*.cy.js"'
-            }
-
-            stage('Check Mochawesome Report') {
-                sh '''
-                    if [ -f cypress/reports/html/index.html ]; then
-                        echo "Mochawesome report found."
-                    else
-                        echo "ERROR: Mochawesome report not found!"
-                        exit 1
-                    fi
-                '''
-            }
-
-            stage('Archive Report') {
-                archiveArtifacts artifacts: 'cypress/reports/html/**/*', allowEmptyArchive: true
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MariamShaliniJack31/CypressBasics.git'
             }
         }
-    }
 
-    stage('Bye') {
-        echo "BYE"
+        stage('Run Cypress in Docker') {
+            steps {
+                script {
+                    def dockerImage = 'cypress/base:22.15.0'
+
+                    // Convert Windows path to Unix-style path
+                    def workspacePath = pwd().replace('C:\\', '/c/').replaceAll('\\\\', '/')
+
+                    docker.image(dockerImage).inside("-v ${workspacePath}:${workspacePath} -w ${workspacePath}") {
+                        bat 'npx cypress run'
+                    }
+                }
+            }
+        }
     }
 }
