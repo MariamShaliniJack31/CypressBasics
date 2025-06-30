@@ -17,9 +17,15 @@ pipeline {
                 script {
                     def dockerImage = 'cypress/base:22.15.0'
 
-                    // Convert Windows path to Unix-style path
-                    def workspacePath = pwd().replace('C:\\', '/c/').replaceAll('\\\\', '/')
+                    // // Convert Windows path to Unix-style path
+                    // def workspacePath = pwd().replace('C:\\', '/c/').replaceAll('\\\\', '/')
 
+                    def windowsPath = pwd()
+                    echo "Windows Path: ${windowsPath}"
+
+                    def unixPath = windowsPath.replace('C:\\', '/c/').replaceAll('\\\\', '/')
+                    echo "Converted Unix Path: ${unixPath}"
+                    
                     docker.image(dockerImage).inside("-v ${workspacePath}:${workspacePath} -w ${workspacePath}") {
                         bat 'npx cypress run'
                     }
