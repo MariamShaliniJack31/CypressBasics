@@ -4,6 +4,10 @@ const { verifyDownloadTasks, isFileExist, findFiles} = require('cy-verify-downlo
 const fs = require('fs');
 const path = require('path');
 
+const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
+const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
+const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
+
 const { merge } = require('mochawesome-merge');
 const generateReport = require('mochawesome-report-generator');
 
@@ -42,7 +46,11 @@ module.exports =  defineConfig({
     baseUrl:     "https://amazon.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      
+      //addCucumberPreprocessorPlugin(on, config);
+      // on("file:preprocessor", createBundler({
+      //   plugins: [createEsbuildPlugin.default(config)],
+      // }));
+
       on("task", { downloadFile , verifyDownloadTasks, isFileExist, 
         
         findFiles (FolderPath, fileName ){
@@ -97,8 +105,17 @@ module.exports =  defineConfig({
     defaultCommandTimeout: 30 * 1000,
     requestTimeout: 5 * 60 * 1000,
     responseTimeout: 5 * 60 * 1000,
+
+    screenshotsFolder: "cypress/screenshots",
+    //baseUrl
+    //videosFolder : ""
     downloadsFolder : "cypress/downloads",
-    //supportFile: "cypress/support/index.js",
+    supportFile: "cypress/support/index.js",
+    
+    specPattern: [
+      "cypress/e2e/**/*.feature",
+      "cypress/e2e/**/*.cy.js"
+    ],
   },
   
   component: {

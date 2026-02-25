@@ -1,12 +1,12 @@
 describe('API Automation in Cypress', () => {
     // Get a property's value on the previously yielded subject.
-    it("GET Request", ()=> {
+    it.only("GET Request", ()=> {
         cy.request("GET", "https://jsonplaceholder.typicode.com/posts/1")
         .its("status")
         .should('eq', 200);
     })
 
-    it("POST Request", ()=> {
+    it.only("POST Request", ()=> {
         cy.request({
                         method:"POST",
                         url: "https://jsonplaceholder.typicode.com/posts/",
@@ -20,7 +20,7 @@ describe('API Automation in Cypress', () => {
                     .should('contain', "Created")
     })
 
-    it.only("POST Request2", ()=> {
+    it("POST Request2", ()=> {
         cy.request("POST", "https://jsonplaceholder.typicode.com/posts/",
                     {
                         userId: "1",
@@ -31,7 +31,7 @@ describe('API Automation in Cypress', () => {
                     .should('contain', "Created")
     })
 
-    it("PUT Request", ()=> {
+    it.only("PUT Request", ()=> {
         cy.request({
                         method:"PUT",
                         url: "https://jsonplaceholder.typicode.com/posts/1",
@@ -46,7 +46,7 @@ describe('API Automation in Cypress', () => {
                     .should('eq', 200)
     })
 
-    it("DELETE Request", ()=> {
+    it.only("DELETE Request", ()=> {
         cy.request({
                         method:"DELETE",
                         url: "https://jsonplaceholder.typicode.com/posts/3",

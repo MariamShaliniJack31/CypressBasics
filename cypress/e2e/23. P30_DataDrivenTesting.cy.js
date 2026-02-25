@@ -9,19 +9,19 @@ describe('Data Driven Testing using Fixtures folder files in Cypress', () => {
 
                 cy.log(logindata.username)
                 cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-                cy.get("input[placeholder='username']").type(logindata.username);
-                cy.get("input[placeholder='password']").type(logindata.password);
+                cy.get("input[placeholder='Username']").type(logindata.username);
+                cy.get("input[placeholder='Password']").type(logindata.password);
                 cy.get("button[type='submit']").click();
 
                 cy.wait(2000);
-                cy.log(cy.location("pathname"));
+                
                 if (logindata.username == "Admin" && logindata.password == "admin123") 
                 {
                     cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('be.visible');
                     cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('have.text',logindata.Expected );  
 
                     cy.get(".oxd-icon.bi-caret-down-fill.oxd-userdropdown-icon").click();
-                    cy.xpath("//a[normalize-space()='Logout']").click();
+                    cy.contains('a.oxd-userdropdown-link', 'Logout').click();
                 }
                 else    
                 {

@@ -1,4 +1,5 @@
-import "./commands"
+/// <reference types="cypress-xpath" />
+// import "./commands"
 import 'cypress-mochawesome-reporter/register';
 //const { merge } = require('mochawesome-merge');
 

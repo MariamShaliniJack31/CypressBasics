@@ -44,7 +44,7 @@ describe('Frames in Cypress', () => {
     })
 
 
-    it('Cypress-iFrame Plugin', () => {
+    it.only('Cypress-iFrame Plugin', () => {
         
         //Open the Application
         cy.visit("https://the-internet.herokuapp.com/iframe")
